@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="oadrc3m1xEGg3bGtsu9LaONIFD33cPbWA1iQvFmIo3U">
+<title>Access AI Solutions — Создание сайтов под ключ | Лендинги, интернет-магазины от $500</title>
+<meta name="description" content="Профессиональная разработка сайтов под ключ в СНГ. Лендинги от $500, корпоративные сайты от $2000, интернет-магазины от $3000. Срок 3-5 дней. Telegram: @access_ai_solutions">
+<meta name="keywords" content="создание сайтов, разработка сайтов, лендинг под ключ, интернет-магазин, сайт для бизнеса, веб-разработка, создание сайта недорого, сайт на заказ, веб студия, Access AI Solutions">
+<meta name="author" content="Access AI Solutions">
+<meta name="robots" content="index, follow">
+<meta name="language" content="Russian">
+<meta name="revisit-after" content="7 days">
+<link rel="canonical" href="https://access-studio.netlify.app">
+
+<!-- Open Graph (для соцсетей) -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://access-studio.netlify.app">
+<meta property="og:title" content="Access AI Solutions — Сайты под ключ от $500">
+<meta property="og:description" content="Создаём профессиональные сайты быстро и недорого. Лендинги за 3 дня. Корпоративные сайты, интернет-магазины. Бесплатная консультация!">
+<meta property="og:image" content="https://access-studio.netlify.app/og-image.jpg">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="Access AI Solutions">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Access AI Solutions — Сайты под ключ от $500">
+<meta name="twitter:description" content="Создаём профессиональные сайты быстро и недорого. Лендинги за 3 дня.">
+
+<!-- Geo теги -->
+<meta name="geo.region" content="TJ">
+<meta name="geo.placename" content="Таджикистан">
+
+<!-- Schema.org разметка -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Access AI Solutions",
+  "description": "Профессиональная разработка сайтов под ключ — лендинги, корпоративные сайты, интернет-магазины",
+  "url": "https://access-studio.netlify.app",
+  "telephone": "+992905003456",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "TJ"
+  },
+  "sameAs": [
+    "https://t.me/access_ai_solutions",
+    "https://wa.me/992905003456"
+  ],
+  "founder": {
+    "@type": "Person",
+    "name": "Фарангис"
+  },
+  "priceRange": "$500 - $5000",
+  "serviceType": "Веб-разработка",
+  "areaServed": ["TJ", "RU", "KZ", "UZ", "KG"],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Услуги веб-разработки",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Лендинг"
+        },
+        "price": "500",
+        "priceCurrency": "USD"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Корпоративный сайт"
+        },
+        "price": "2000",
+        "priceCurrency": "USD"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Интернет-магазин"
+        },
+        "price": "3000",
+        "priceCurrency": "USD"
+      }
+    ]
+  }
+}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #080a0f;
+  --surface: #111520;
+  --border: rgba(255,255,255,0.08);
+  --accent: #00e5ff;
+  --accent2: #7b61ff;
+  --text: #f0f2f7;
+  --muted: #a8b0c0;
+}
+
+html { scroll-behavior: smooth; background: #080a0f; }
+
+body {
+  background: #080a0f;
+  color: var(--text);
+  font-family: 'Syne', sans-serif;
+  overflow-x: hidden;
+}
+
+/* SCROLL PROGRESS */
+#progress {
+  position: fixed; top: 0; left: 0; height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  z-index: 9999; width: 0%; transition: width 0.1s;
+}
+
+/* GRID BG */
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image:
+    linear-gradient(rgba(0,229,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,229,255,0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none; z-index: 0;
+}
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 22px 6%;
+  border-bottom: 1px solid var(--border);
+  background: rgba(8,10,15,0.92);
+  backdrop-filter: blur(20px);
+}
+.logo { font-size: 18px; font-weight: 800; color: var(--text); text-decoration: none; }
+.logo span { color: var(--accent); }
+.logo small { font-size: 12px; font-weight: 600; opacity: 0.7; letter-spacing: 0.05em; font-family: 'Manrope', sans-serif; }
+.nav-links { display: flex; gap: 32px; list-style: none; }
+.nav-links a { font-family: 'Manrope', sans-serif; font-size: 14px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--accent); }
+.nav-cta {
+  font-family: 'Manrope', sans-serif; font-size: 14px; font-weight: 700;
+  padding: 10px 24px; border: 1px solid var(--accent);
+  color: var(--accent); background: transparent; text-decoration: none; transition: all 0.2s;
+}
+.nav-cta:hover { background: var(--accent); color: #080a0f; }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: grid; grid-template-columns: 55% 45%;
+  align-items: center; padding: 120px 6% 80px;
+  position: relative; overflow: hidden; gap: 40px; background: #080a0f;
+}
+.hero-glow {
+  position: absolute; width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(0,229,255,0.07) 0%, transparent 70%);
+  top: 10%; left: -100px; pointer-events: none; animation: pulse 6s ease-in-out infinite;
+}
+.hero-glow2 {
+  position: absolute; width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(123,97,255,0.08) 0%, transparent 70%);
+  bottom: 10%; right: -50px; pointer-events: none; animation: pulse 8s ease-in-out infinite reverse;
+}
+@keyframes pulse { 0%,100%{transform:scale(1);} 50%{transform:scale(1.1);opacity:0.7;} }
+
+.hero-left { display: flex; flex-direction: column; position: relative; z-index: 1; }
+.hero-eyebrow {
+  font-family: 'Manrope', sans-serif; font-size: 14px; font-weight: 600;
+  color: var(--accent); letter-spacing: 0.08em; margin-bottom: 28px;
+  animation: fadeUp 0.8s 0.2s both;
+}
+.hero-title {
+  font-size: clamp(44px, 4.5vw, 84px); font-weight: 800;
+  line-height: 0.95; letter-spacing: -2px; animation: fadeUp 0.8s 0.4s both;
+}
+.hero-title .line2 { color: rgba(255,255,255,0.3); }
+.hero-title .accent { color: var(--accent); }
+.hero-desc {
+  margin-top: 32px; font-family: 'Manrope', sans-serif;
+  font-size: 16px; line-height: 1.8; color: var(--muted); max-width: 440px;
+  animation: fadeUp 0.8s 0.6s both;
+}
+.hero-actions { margin-top: 40px; display: flex; gap: 16px; animation: fadeUp 0.8s 0.8s both; flex-wrap: wrap; }
+.btn-primary {
+  padding: 15px 32px; background: var(--accent); color: #080a0f;
+  font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 700;
+  text-decoration: none; transition: all 0.2s; display: inline-block;
+}
+.btn-primary:hover { background: var(--accent2); color: #fff; transform: translateY(-2px); }
+.btn-ghost {
+  padding: 15px 32px; border: 1px solid rgba(255,255,255,0.2);
+  color: var(--text); font-family: 'Manrope', sans-serif; font-size: 15px;
+  font-weight: 600; text-decoration: none; transition: all 0.2s; cursor: pointer; background: transparent;
+}
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+.hero-stats { margin-top: 56px; display: flex; gap: 48px; animation: fadeUp 0.8s 1s both; }
+.stat-num { font-size: 30px; font-weight: 800; color: var(--text); letter-spacing: -1px; }
+.stat-num span { color: var(--accent); }
+.stat-label { font-family: 'Manrope', sans-serif; font-size: 13px; color: var(--muted); margin-top: 4px; }
+
+@keyframes fadeUp { from{opacity:0;transform:translateY(24px);} to{opacity:1;transform:translateY(0);} }
+
+/* FLOAT CARDS */
+.hero-right {
+  display: flex; flex-direction: column; gap: 16px;
+  position: relative; z-index: 1; padding-top: 40px;
+}
+.float-card {
+  background: #131b2e; border: 1px solid rgba(0,229,255,0.2);
+  border-radius: 16px; padding: 22px 24px; width: 100%;
+  animation: floatY 4s ease-in-out infinite;
+}
+.float-card:nth-child(2) { animation-delay: 1.3s; }
+.float-card:nth-child(3) { animation-delay: 2.6s; }
+@keyframes floatY { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-8px);} }
+.float-label { font-family:'Manrope',sans-serif; font-size:11px; font-weight:700; color:var(--accent); letter-spacing:0.12em; text-transform:uppercase; margin-bottom:8px; }
+.float-title { font-size:17px; font-weight:700; color:var(--text); margin-bottom:6px; }
+.float-stat { font-size:34px; font-weight:800; color:var(--accent); letter-spacing:-2px; margin-bottom:4px; }
+.float-sub { font-family:'Manrope',sans-serif; font-size:13px; color:var(--muted); line-height:1.5; margin-bottom:12px; }
+.float-row { display:flex; align-items:center; gap:8px; }
+.float-dot { width:8px; height:8px; border-radius:50%; background:#22c55e; box-shadow:0 0 8px #22c55e; flex-shrink:0; }
+.float-dot-blue { background:var(--accent); box-shadow:0 0 8px var(--accent); }
+.float-dot-yellow { background:#f59e0b; box-shadow:0 0 8px #f59e0b; }
+.float-row-text { font-family:'Manrope',sans-serif; font-size:12px; color:var(--muted); }
+
+/* MARQUEE */
+.marquee-section {
+  border-top:1px solid var(--border); border-bottom:1px solid var(--border);
+  padding:18px 0; overflow:hidden; background:#111520; position:relative; z-index:1;
+}
+.marquee-track { display:flex; gap:60px; animation:marquee 25s linear infinite; white-space:nowrap; }
+.marquee-item { font-family:'Manrope',sans-serif; font-size:14px; font-weight:500; color:var(--muted); display:flex; align-items:center; gap:20px; flex-shrink:0; }
+.marquee-dot { width:4px; height:4px; background:var(--accent); border-radius:50%; }
+@keyframes marquee { from{transform:translateX(0);} to{transform:translateX(-50%);} }
+
+/* SECTIONS COMMON */
+section { position:relative; z-index:1; }
+.section-label { font-family:'Manrope',sans-serif; font-size:12px; font-weight:700; color:var(--accent); letter-spacing:0.15em; text-transform:uppercase; margin-bottom:20px; }
+
+/* WHY WEBSITE SECTION */
+.why-section {
+  padding: 120px 6%; background: #080a0f;
+  border-top: 1px solid var(--border);
+}
+.why-header { text-align: center; margin-bottom: 80px; }
+.why-title { font-size: 48px; font-weight: 800; letter-spacing: -2px; margin-bottom: 20px; }
+.why-subtitle { font-family: 'Manrope', sans-serif; font-size: 18px; color: var(--muted); max-width: 600px; margin: 0 auto; line-height: 1.7; }
+
+.why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--border); }
+.why-card {
+  background: #080a0f; padding: 48px 40px;
+  transition: background 0.3s;
+}
+.why-card:hover { background: #111520; }
+.why-icon { font-size: 40px; margin-bottom: 24px; }
+.why-card-title { font-size: 22px; font-weight: 700; margin-bottom: 16px; letter-spacing: -0.5px; }
+.why-card-text { font-family: 'Manrope', sans-serif; font-size: 15px; color: var(--muted); line-height: 1.8; }
+
+/* STATS SECTION */
+.stats-section {
+  padding: 100px 6%; background: #0d1117;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; }
+.big-stat-num { font-size: 64px; font-weight: 800; color: var(--accent); letter-spacing: -3px; line-height: 1; }
+.big-stat-label { font-family: 'Manrope', sans-serif; font-size: 15px; color: var(--muted); margin-top: 12px; line-height: 1.5; }
+
+/* ABOUT */
+.about {
+  padding: 120px 6%; display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: center; background: #080a0f;
+  border-top: 1px solid var(--border);
+}
+.about-title { font-size: 48px; font-weight: 800; line-height: 1.05; letter-spacing: -2px; }
+.about-right p { font-family: 'Manrope', sans-serif; font-size: 16px; line-height: 1.9; color: var(--muted); margin-bottom: 20px; }
+.about-right p strong { color: var(--text); font-weight: 700; }
+.tag-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
+.tag { font-family: 'Manrope', sans-serif; font-size: 13px; font-weight: 600; padding: 8px 18px; border: 1px solid var(--border); color: var(--muted); transition: all 0.2s; }
+.tag:hover { border-color: var(--accent); color: var(--accent); }
+
+/* SERVICES */
+.services { padding: 120px 6%; border-top: 1px solid var(--border); background: #080a0f; }
+.services-title { font-size: 48px; font-weight: 800; letter-spacing: -2px; margin-bottom: 16px; }
+.services-subtitle { font-family: 'Manrope', sans-serif; font-size: 16px; color: var(--muted); margin-bottom: 56px; max-width: 500px; line-height: 1.7; }
+.services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--border); }
+.service-card {
+  background: #080a0f; padding: 48px; transition: background 0.3s;
+  position: relative; overflow: hidden;
+}
+.service-card::before {
+  content: ''; position: absolute; top: 0; left: 0;
+  width: 3px; height: 0; background: var(--accent); transition: height 0.4s ease;
+}
+.service-card:hover { background: #111520; }
+.service-card:hover::before { height: 100%; }
+.service-num { font-family: 'Manrope', sans-serif; font-size: 13px; font-weight: 600; color: var(--muted); margin-bottom: 24px; }
+.service-name { font-size: 26px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 14px; }
+.service-desc { font-family: 'Manrope', sans-serif; font-size: 15px; color: var(--muted); line-height: 1.8; margin-bottom: 20px; }
+.service-features { list-style: none; margin-bottom: 28px; }
+.service-features li { font-family: 'Manrope', sans-serif; font-size: 14px; color: var(--muted); padding: 4px 0; }
+.service-features li::before { content: '✓ '; color: var(--accent); font-weight: 700; }
+.service-price { font-size: 22px; font-weight: 800; color: var(--accent); }
+
+/* WHY US */
+.whyus-section { padding: 120px 6%; background: #0d1117; border-top: 1px solid var(--border); }
+.whyus-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.whyus-title { font-size: 48px; font-weight: 800; letter-spacing: -2px; margin-bottom: 32px; }
+.whyus-list { display: flex; flex-direction: column; gap: 24px; }
+.whyus-item { display: flex; gap: 20px; align-items: flex-start; }
+.whyus-icon { width: 48px; height: 48px; background: rgba(0,229,255,0.1); border: 1px solid rgba(0,229,255,0.2); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+.whyus-item-title { font-size: 17px; font-weight: 700; margin-bottom: 6px; }
+.whyus-item-text { font-family: 'Manrope', sans-serif; font-size: 14px; color: var(--muted); line-height: 1.7; }
+.whyus-right { background: #131b2e; border: 1px solid rgba(0,229,255,0.15); border-radius: 20px; padding: 48px; }
+.quote { font-size: 22px; font-weight: 700; line-height: 1.5; margin-bottom: 32px; }
+.quote span { color: var(--accent); }
+.quote-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.quote-stat-num { font-size: 40px; font-weight: 800; color: var(--accent); letter-spacing: -2px; }
+.quote-stat-label { font-family: 'Manrope', sans-serif; font-size: 13px; color: var(--muted); margin-top: 4px; }
+
+/* PORTFOLIO */
+.portfolio { padding: 120px 6%; border-top: 1px solid var(--border); background: #080a0f; }
+.portfolio-title { font-size: 48px; font-weight: 800; letter-spacing: -2px; margin-bottom: 16px; }
+.portfolio-subtitle { font-family: 'Manrope', sans-serif; font-size: 16px; color: var(--muted); margin-bottom: 56px; line-height: 1.7; }
+.portfolio-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.portfolio-card {
+  background: #111520; border: 1px solid var(--border); padding: 48px;
+  position: relative; overflow: hidden; transition: border-color 0.3s, transform 0.3s;
+  text-decoration: none; display: block;
+}
+.portfolio-card:hover { border-color: var(--accent); transform: translateY(-4px); }
+.portfolio-card::after { content:'↗'; position:absolute; top:32px; right:32px; font-size:20px; color:var(--muted); transition:color 0.2s, transform 0.2s; }
+.portfolio-card:hover::after { color:var(--accent); transform:translate(4px,-4px); }
+.portfolio-tag { font-family:'Manrope',sans-serif; font-size:13px; font-weight:600; color:var(--accent); margin-bottom:16px; }
+.portfolio-name { font-size:32px; font-weight:800; letter-spacing:-1px; margin-bottom:14px; color:var(--text); }
+.portfolio-desc { font-family:'Manrope',sans-serif; font-size:15px; color:var(--muted); line-height:1.8; }
+.portfolio-line { position:absolute; bottom:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--accent),var(--accent2)); transform:scaleX(0); transform-origin:left; transition:transform 0.4s ease; }
+.portfolio-card:hover .portfolio-line { transform:scaleX(1); }
+
+/* PROCESS */
+.process { padding: 120px 6%; border-top: 1px solid var(--border); background: #080a0f; }
+.process-title { font-size: 48px; font-weight: 800; letter-spacing: -2px; margin-bottom: 16px; }
+.process-subtitle { font-family: 'Manrope', sans-serif; font-size: 16px; color: var(--muted); margin-bottom: 56px; line-height: 1.7; }
+.process-item { display:grid; grid-template-columns:80px 1fr; gap:32px; padding:36px 0; border-bottom:1px solid var(--border); transition: padding-left 0.3s; }
+.process-item:hover { padding-left: 12px; }
+.process-item:hover .process-step { color:var(--accent); }
+.process-step { font-family:'Manrope',sans-serif; font-size:14px; font-weight:600; color:var(--muted); padding-top:4px; transition:color 0.3s; }
+.process-content-title { font-size:22px; font-weight:700; margin-bottom:10px; }
+.process-content-desc { font-family:'Manrope',sans-serif; font-size:15px; color:var(--muted); line-height:1.8; }
+
+/* TESTIMONIAL */
+.testimonial-section { padding: 120px 6%; background: #0d1117; border-top: 1px solid var(--border); }
+.testimonial-title { font-size: 48px; font-weight: 800; letter-spacing: -2px; margin-bottom: 56px; text-align: center; }
+.testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.testimonial-card { background: #131b2e; border: 1px solid rgba(0,229,255,0.1); border-radius: 16px; padding: 36px; }
+.testimonial-stars { color: #f59e0b; font-size: 18px; margin-bottom: 20px; }
+.testimonial-text { font-family: 'Manrope', sans-serif; font-size: 15px; color: var(--muted); line-height: 1.8; margin-bottom: 24px; font-style: italic; }
+.testimonial-author { font-family: 'Manrope', sans-serif; font-size: 14px; font-weight: 700; color: var(--text); }
+.testimonial-role { font-family: 'Manrope', sans-serif; font-size: 13px; color: var(--accent); margin-top: 4px; }
+
+/* FAQ */
+.faq-section { padding: 120px 6%; background: #080a0f; border-top: 1px solid var(--border); }
+.faq-title { font-size: 48px; font-weight: 800; letter-spacing: -2px; margin-bottom: 56px; }
+.faq-item { border-bottom: 1px solid var(--border); }
+.faq-question {
+  width: 100%; background: none; border: none; text-align: left;
+  padding: 28px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+  font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700; color: var(--text);
+  transition: color 0.2s;
+}
+.faq-question:hover { color: var(--accent); }
+.faq-arrow { font-size: 20px; color: var(--accent); transition: transform 0.3s; flex-shrink: 0; }
+.faq-answer { font-family: 'Manrope', sans-serif; font-size: 15px; color: var(--muted); line-height: 1.8; max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s; }
+.faq-item.open .faq-answer { max-height: 300px; padding-bottom: 24px; }
+.faq-item.open .faq-arrow { transform: rotate(45deg); }
+
+/* CTA */
+.cta { padding: 120px 6%; border-top: 1px solid var(--border); text-align: center; position: relative; overflow: hidden; background: #080a0f; }
+.cta-bg { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 100%, rgba(0,229,255,0.06) 0%, transparent 60%); }
+.cta-label { font-family: 'Manrope', sans-serif; font-size: 13px; font-weight: 700; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 24px; position: relative; }
+.cta-title { font-size: clamp(48px, 7vw, 96px); font-weight: 800; letter-spacing: -3px; line-height: 0.95; margin-bottom: 20px; position: relative; }
+.cta-title .outline { color: rgba(255,255,255,0.3); }
+.cta-subtitle { font-family: 'Manrope', sans-serif; font-size: 18px; color: var(--muted); margin-bottom: 48px; position: relative; }
+.cta-actions { display: flex; gap: 16px; justify-content: center; position: relative; flex-wrap: wrap; }
+.btn-wa { padding: 15px 32px; background: #25D366; color: #fff; font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 700; text-decoration: none; transition: all 0.2s; display: inline-block; }
+.btn-wa:hover { background: #128C7E; transform: translateY(-2px); }
+
+/* FOOTER */
+footer { padding: 48px 6%; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; background: #080a0f; }
+.footer-logo { font-size: 18px; font-weight: 800; color: var(--text); }
+.footer-logo span { color: var(--accent); }
+.footer-copy { font-family: 'Manrope', sans-serif; font-size: 13px; color: var(--muted); }
+.footer-links { display: flex; gap: 32px; }
+.footer-links a { font-family: 'Manrope', sans-serif; font-size: 13px; color: var(--muted); text-decoration: none; transition: color 0.2s; cursor: pointer; }
+.footer-links a:hover { color: var(--accent); }
+
+/* CHAT */
+.chat-btn { position:fixed; bottom:32px; right:32px; width:60px; height:60px; background:var(--accent); border-radius:50%; display:flex; align-items:center; justify-content:center; cursor:pointer; z-index:1000; border:none; font-size:24px; transition:transform 0.2s; box-shadow:0 0 30px rgba(0,229,255,0.4); animation:chatPulse 2s ease-in-out infinite; }
+.chat-btn:hover { transform:scale(1.1); }
+@keyframes chatPulse { 0%,100%{box-shadow:0 0 20px rgba(0,229,255,0.4);} 50%{box-shadow:0 0 50px rgba(0,229,255,0.8);} }
+.chat-window { position:fixed; bottom:104px; right:32px; width:360px; height:500px; background:#0d1117; border:1px solid rgba(0,229,255,0.25); border-radius:20px; display:none; flex-direction:column; z-index:1000; overflow:hidden; box-shadow:0 20px 60px rgba(0,0,0,0.5); }
+.chat-window.open { display:flex; }
+.chat-header { padding:18px 20px; background:#111520; border-bottom:1px solid rgba(255,255,255,0.06); display:flex; align-items:center; gap:12px; }
+.chat-avatar { width:36px; height:36px; background:var(--accent); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:16px; }
+.chat-header-info h4 { font-family:'Syne',sans-serif; font-size:14px; font-weight:700; color:var(--text); }
+.chat-header-info p { font-family:'Manrope',sans-serif; font-size:12px; color:#22c55e; }
+.chat-close { margin-left:auto; background:none; border:none; color:var(--muted); font-size:24px; cursor:pointer; }
+.chat-messages { flex:1; overflow-y:auto; padding:16px; display:flex; flex-direction:column; gap:12px; }
+.chat-messages::-webkit-scrollbar { width:4px; }
+.chat-messages::-webkit-scrollbar-thumb { background:rgba(255,255,255,0.1); border-radius:2px; }
+.msg { max-width:85%; padding:10px 14px; border-radius:14px; font-family:'Manrope',sans-serif; font-size:14px; line-height:1.6; }
+.msg.bot { background:#1a2035; color:var(--text); border-bottom-left-radius:4px; align-self:flex-start; border:1px solid rgba(0,229,255,0.1); }
+.msg.user { background:var(--accent); color:#080a0f; font-weight:600; border-bottom-right-radius:4px; align-self:flex-end; }
+.typing-dots { display:flex; gap:4px; padding:12px 14px; background:#1a2035; border-radius:14px; border-bottom-left-radius:4px; align-self:flex-start; }
+.typing-dots span { width:6px; height:6px; background:var(--accent); border-radius:50%; animation:dot 1.2s infinite; }
+.typing-dots span:nth-child(2){animation-delay:0.2s;} .typing-dots span:nth-child(3){animation-delay:0.4s;}
+@keyframes dot{0%,100%{opacity:0.2;transform:scale(1)}50%{opacity:1;transform:scale(1.3)}}
+.chat-input-area { padding:12px 16px; border-top:1px solid rgba(255,255,255,0.06); display:flex; gap:10px; background:#111520; }
+.chat-input { flex:1; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:10px; padding:10px 14px; color:var(--text); font-family:'Manrope',sans-serif; font-size:14px; outline:none; }
+.chat-input:focus { border-color:rgba(0,229,255,0.4); }
+.chat-input::placeholder { color:var(--muted); }
+.chat-send { width:38px; height:38px; background:var(--accent); border:none; border-radius:10px; cursor:pointer; font-size:16px; display:flex; align-items:center; justify-content:center; }
+.chat-send:hover { background:var(--accent2); }
+
+/* REVEAL */
+.reveal { opacity:1; transform:translateY(0); transition:opacity 0.7s ease, transform 0.7s ease; }
+.js-loaded .reveal { opacity:0; transform:translateY(28px); }
+.js-loaded .reveal.visible { opacity:1; transform:translateY(0); }
+
+@media (max-width: 900px) {
+  nav { padding:20px 24px; }
+  .nav-links { display:none; }
+  .hero { grid-template-columns:1fr; padding:110px 24px 60px; gap:0; }
+  .hero-right { display:none; }
+  .hero-title { font-size:48px; }
+  .hero-stats { gap:24px; flex-wrap:wrap; }
+  .why-grid { grid-template-columns:1fr; }
+  .stats-grid { grid-template-columns:repeat(2,1fr); }
+  .about { grid-template-columns:1fr; padding:80px 24px; gap:40px; }
+  .about-title,.services-title,.why-title,.whyus-title,.portfolio-title,.process-title,.faq-title,.testimonial-title { font-size:36px; }
+  .services { padding:80px 24px; }
+  .services-grid { grid-template-columns:1fr; }
+  .whyus-grid { grid-template-columns:1fr; }
+  .portfolio { padding:80px 24px; }
+  .portfolio-grid { grid-template-columns:1fr; }
+  .process { padding:80px 24px; }
+  .testimonial-grid { grid-template-columns:1fr; }
+  .cta { padding:80px 24px; }
+  .cta-title { font-size:48px; letter-spacing:-2px; }
+  footer { padding:32px 24px; flex-direction:column; gap:20px; text-align:center; }
+  .chat-window { width:calc(100vw - 48px); right:24px; }
+}
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<nav>
+  <a href="#" class="logo">Access<span>.</span> <small>AI Solutions</small></a>
+  <ul class="nav-links">
+    <li><a href="javascript:void(0)" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">услуги</a></li>
+    <li><a href="javascript:void(0)" onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth'})">работы</a></li>
+    <li><a href="javascript:void(0)" onclick="document.getElementById('process').scrollIntoView({behavior:'smooth'})">процесс</a></li>
+    <li><a href="javascript:void(0)" onclick="document.getElementById('faq').scrollIntoView({behavior:'smooth'})">FAQ</a></li>
+  </ul>
+  <a href="https://t.me/access_ai_solutions" target="_blank" class="nav-cta">Обсудить проект</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-left">
+    <p class="hero-eyebrow">// Привет, я Фарангис — основатель Access</p>
+    <h1 class="hero-title">
+      Сайты,<br>
+      <span class="line2">которые</span><br>
+      <span class="accent">работают.</span>
+    </h1>
+    <p class="hero-desc">Создаём профессиональные веб-сайты под ключ — быстро, красиво и без лишних слов. От лендинга до интернет-магазина.</p>
+    <div class="hero-actions">
+      <a href="https://t.me/access_ai_solutions" target="_blank" class="btn-primary">Начать проект</a>
+      <a href="javascript:void(0)" onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth'})" class="btn-ghost">Посмотреть работы</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-num">100<span>+</span></div><div class="stat-label">проектов</div></div>
+      <div><div class="stat-num">3 <span>дня</span></div><div class="stat-label">средний срок</div></div>
+      <div><div class="stat-num">от <span>$500</span></div><div class="stat-label">стоимость</div></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="float-card">
+      <div class="float-label">Новый проект</div>
+      <div class="float-title">Интернет-магазин</div>
+      <div class="float-sub">E-commerce под ключ с каталогом и оплатой</div>
+      <div class="float-row"><div class="float-dot"></div><span class="float-row-text">В разработке</span></div>
+    </div>
+    <div class="float-card">
+      <div class="float-label">Статистика</div>
+      <div class="float-stat">100+</div>
+      <div class="float-sub">проектов успешно запущено</div>
+      <div class="float-row"><div class="float-dot float-dot-blue"></div><span class="float-row-text">Растём каждый месяц</span></div>
+    </div>
+    <div class="float-card">
+      <div class="float-label">Последний запуск</div>
+      <div class="float-title">SellBot.online</div>
+      <div class="float-sub">SaaS платформа — сдано за 3 дня</div>
+      <div class="float-row"><div class="float-dot float-dot-yellow"></div><span class="float-row-text">Завершён ✓</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <div class="marquee-item"><span>Лендинг</span><div class="marquee-dot"></div></div>
+    <div class="marquee-item"><span>Сайт-визитка</span><div class="marquee-dot"></div></div>
+    <div class="marquee-item"><span>Интернет-магазин</span><div class="marquee-dot"></div></div>
+    <div class="marquee-item"><span>Корпоративный сайт</span><div class="marquee-dot"></div></div>
+    <div class="marquee-item"><span>Веб-приложение</span><div class="marquee-dot"></div></div>
+    <div class="marquee-item"><span>UI/UX дизайн</span><div class="marquee-dot"></div></div>
+    <div class="marquee-item"><span>SEO оптимизация</span><div class="marquee-dot"></div></div>
+    <div class="marquee-item"><span>Поддержка</span><div class="marquee-dot"></div></div>
+    <div class="marquee-item"><span>Лендинг</span><div class="marquee-dot"></div></div>
+    <div class="marquee-item"><span>Сайт-визитка</span><div class="marquee-dot"></div></div>
+    <div class="marquee-item"><span>Интернет-магазин</span><div class="marquee-dot"></div></div>
+    <div class="marquee-item"><span>Корпоративный сайт</span><div class="marquee-dot"></div></div>
+    <div class="marquee-item"><span>Веб-приложение</span><div class="marquee-dot"></div></div>
+    <div class="marquee-item"><span>UI/UX дизайн</span><div class="marquee-dot"></div></div>
+    <div class="marquee-item"><span>SEO оптимизация</span><div class="marquee-dot"></div></div>
+    <div class="marquee-item"><span>Поддержка</span><div class="marquee-dot"></div></div>
+  </div>
+</div>
+
+<!-- WHY WEBSITE -->
+<section class="why-section reveal">
+  <div class="why-header">
+    <p class="section-label">// Почему сайт — это необходимость</p>
+    <h2 class="why-title">Без сайта вас не существует</h2>
+    <p class="why-subtitle">97% людей ищут товары и услуги в интернете прежде чем принять решение о покупке. Если вас нет онлайн — вы теряете клиентов каждый день.</p>
+  </div>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">🌍</div>
+      <h3 class="why-card-title">Доступность 24/7</h3>
+      <p class="why-card-text">Ваш сайт работает круглосуточно, без выходных и праздников. Клиенты могут найти информацию о вас и оставить заявку в любое время дня и ночи — даже пока вы спите.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">💎</div>
+      <h3 class="why-card-title">Доверие и репутация</h3>
+      <p class="why-card-text">75% пользователей оценивают доверие к компании по её сайту. Профессиональный сайт — это ваша визитная карточка, которая говорит "мы серьёзный бизнес" ещё до первого звонка.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">📈</div>
+      <h3 class="why-card-title">Рост продаж</h3>
+      <p class="why-card-text">Компании с сайтом получают в среднем на 40% больше клиентов чем без него. Сайт — это инструмент продаж который работает на вас постоянно, без зарплаты и выходных.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🎯</div>
+      <h3 class="why-card-title">Целевые клиенты</h3>
+      <p class="why-card-text">Через Google и Яндекс к вам приходят люди которые УЖЕ ищут ваши услуги. Это самая горячая аудитория — им не нужно ничего объяснять, они сами хотят купить.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🚀</div>
+      <h3 class="why-card-title">Конкурентное преимущество</h3>
+      <p class="why-card-text">Пока ваши конкуренты уже онлайн — вы теряете позиции. Качественный сайт позволяет обойти конкурентов, занять нишу и стать первым выбором клиента.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">💰</div>
+      <h3 class="why-card-title">Окупается быстро</h3>
+      <p class="why-card-text">Один новый клиент с сайта — и вложения уже окупились. Средний сайт окупается за 1-3 месяца. После этого каждый клиент с сайта — это чистая прибыль для вашего бизнеса.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BIG STATS -->
+<section class="stats-section reveal">
+  <p class="section-label" style="margin-bottom:48px;">// Цифры говорят сами за себя</p>
+  <div class="stats-grid">
+    <div>
+      <div class="big-stat-num">97%</div>
+      <div class="big-stat-label">людей ищут бизнесы<br>онлайн перед покупкой</div>
+    </div>
+    <div>
+      <div class="big-stat-num">75%</div>
+      <div class="big-stat-label">судят о доверии к компании<br>по дизайну сайта</div>
+    </div>
+    <div>
+      <div class="big-stat-num">40%</div>
+      <div class="big-stat-label">больше клиентов<br>у бизнесов с сайтом</div>
+    </div>
+    <div>
+      <div class="big-stat-num">3 сек</div>
+      <div class="big-stat-label">чтобы произвести<br>первое впечатление</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about reveal">
+  <div>
+    <p class="section-label">// О нас</p>
+    <h2 class="about-title">Мы делаем сайты, а не шаблоны.</h2>
+  </div>
+  <div class="about-right">
+    <p>Access — это студия по созданию сайтов под ключ. Я, <strong>Фарангис</strong>, делаю сайты которые выглядят дорого, работают быстро и приносят результат.</p>
+    <p>Использую современные технологии и AI-инструменты — поэтому делаю быстрее и дешевле студий, без потери качества.</p>
+    <p>Каждый проект индивидуально. Без шаблонов, без лишних встреч, без затянутых сроков.</p>
+    <div class="tag-list">
+      <div class="tag">React</div><div class="tag">Figma</div><div class="tag">Supabase</div>
+      <div class="tag">Tailwind</div><div class="tag">Lovable</div><div class="tag">Node.js</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="reveal">
+    <p class="section-label">// Услуги</p>
+    <h2 class="services-title">Что мы делаем</h2>
+    <p class="services-subtitle">Полный цикл — от идеи до запуска. Вы описываете задачу, мы делаем результат.</p>
+  </div>
+  <div class="services-grid reveal">
+    <div class="service-card">
+      <p class="service-num">01 —</p>
+      <h3 class="service-name">Лендинг</h3>
+      <p class="service-desc">Одностраничный продающий сайт с фокусом на конверсию. Идеально для запуска продукта или рекламной кампании.</p>
+      <ul class="service-features">
+        <li>Уникальный дизайн</li>
+        <li>Адаптивная вёрстка</li>
+        <li>Формы захвата лидов</li>
+        <li>Подключение аналитики</li>
+      </ul>
+      <div class="service-price">от $500 · 1-3 дня</div>
+    </div>
+    <div class="service-card">
+      <p class="service-num">02 —</p>
+      <h3 class="service-name">Сайт-визитка</h3>
+      <p class="service-desc">Многостраничный сайт для представления компании или специалиста. Ваше лицо в интернете — профессионально и убедительно.</p>
+      <ul class="service-features">
+        <li>До 7 страниц</li>
+        <li>Блог / новости</li>
+        <li>Форма обратной связи</li>
+        <li>SEO оптимизация</li>
+      </ul>
+      <div class="service-price">от $1 000 · 3-5 дней</div>
+    </div>
+    <div class="service-card">
+      <p class="service-num">03 —</p>
+      <h3 class="service-name">Корпоративный сайт</h3>
+      <p class="service-desc">Полноценный сайт с несколькими разделами, интеграциями и уникальным дизайном. Для серьёзного бизнеса.</p>
+      <ul class="service-features">
+        <li>Неограниченно страниц</li>
+        <li>CRM интеграции</li>
+        <li>Личный кабинет</li>
+        <li>Многоязычность</li>
+      </ul>
+      <div class="service-price">от $2 000 · 1-2 недели</div>
+    </div>
+    <div class="service-card">
+      <p class="service-num">04 —</p>
+      <h3 class="service-name">Интернет-магазин</h3>
+      <p class="service-desc">Полноценный магазин с каталогом, корзиной, оплатой и личным кабинетом. Готов к продажам с первого дня.</p>
+      <ul class="service-features">
+        <li>Каталог товаров</li>
+        <li>Онлайн оплата</li>
+        <li>Личный кабинет</li>
+        <li>Управление заказами</li>
+      </ul>
+      <div class="service-price">от $3 000 · 2-4 недели</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="whyus-section reveal">
+  <div class="whyus-grid">
+    <div>
+      <p class="section-label">// Почему Access</p>
+      <h2 class="whyus-title">Чем мы отличаемся от других</h2>
+      <div class="whyus-list">
+        <div class="whyus-item">
+          <div class="whyus-icon">⚡</div>
+          <div>
+            <div class="whyus-item-title">Скорость</div>
+            <div class="whyus-item-text">Пока студии делают месяц — мы делаем за 3 дня. Используем AI-инструменты для ускорения разработки без потери качества.</div>
+          </div>
+        </div>
+        <div class="whyus-item">
+          <div class="whyus-icon">💸</div>
+          <div>
+            <div class="whyus-item-title">Цена</div>
+            <div class="whyus-item-text">В 2-3 раза дешевле студий при том же качестве. Никаких скрытых платежей — вы знаете финальную цену до начала работы.</div>
+          </div>
+        </div>
+        <div class="whyus-item">
+          <div class="whyus-icon">🔑</div>
+          <div>
+            <div class="whyus-item-title">Владеете кодом</div>
+            <div class="whyus-item-text">Получаете полный исходный код сайта. Никакой зависимости от нас — ваш программист сможет дорабатывать проект самостоятельно.</div>
+          </div>
+        </div>
+        <div class="whyus-item">
+          <div class="whyus-icon">🤝</div>
+          <div>
+            <div class="whyus-item-title">Личный подход</div>
+            <div class="whyus-item-text">Работаете напрямую с основателем, без менеджеров-посредников. Всегда на связи, отвечаю быстро.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="whyus-right">
+      <div class="quote">
+        Каждый день без сайта — это <span>потерянные клиенты</span> и деньги которые уходят к конкурентам.
+      </div>
+      <div class="quote-stats">
+        <div>
+          <div class="quote-stat-num">3×</div>
+          <div class="quote-stat-label">быстрее студий</div>
+        </div>
+        <div>
+          <div class="quote-stat-num">2×</div>
+          <div class="quote-stat-label">дешевле агентств</div>
+        </div>
+        <div>
+          <div class="quote-stat-num">100%</div>
+          <div class="quote-stat-label">владение кодом</div>
+        </div>
+        <div>
+          <div class="quote-stat-num">24/7</div>
+          <div class="quote-stat-label">поддержка</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="portfolio" id="portfolio">
+  <div class="reveal">
+    <p class="section-label">// Портфолио</p>
+    <h2 class="portfolio-title">Наши работы</h2>
+    <p class="portfolio-subtitle">Каждый проект — уникальное решение под задачи клиента.</p>
+  </div>
+  <div class="portfolio-grid reveal">
+    <a href="https://nephrolife.online" target="_blank" rel="noopener noreferrer" class="portfolio-card">
+      <p class="portfolio-tag">Медицина · Веб-приложение</p>
+      <h3 class="portfolio-name">Nephrolife</h3>
+      <p class="portfolio-desc">Веб-приложение для пациентов с заболеваниями почек. Удобный интерфейс, медицинский функционал, адаптивный дизайн.</p>
+      <div class="portfolio-line"></div>
+    </a>
+    <a href="https://sellbot.online" target="_blank" rel="noopener noreferrer" class="portfolio-card">
+      <p class="portfolio-tag">SaaS · Платформа</p>
+      <h3 class="portfolio-name">SellBot</h3>
+      <p class="portfolio-desc">SaaS платформа для подключения умных ассистентов к бизнесу. Автоматизация продаж, современный UI, высокая конверсия.</p>
+      <div class="portfolio-line"></div>
+    </a>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <div class="reveal">
+    <p class="section-label">// Как работаем</p>
+    <h2 class="process-title">Просто и прозрачно</h2>
+    <p class="process-subtitle">Никаких неожиданностей. Вы всегда знаете что происходит с проектом.</p>
+  </div>
+  <div class="reveal">
+    <div class="process-item">
+      <div class="process-step">01 —</div>
+      <div><h3 class="process-content-title">Бриф и консультация</h3><p class="process-content-desc">Обсуждаем задачу, цели и пожелания. Я задаю нужные вопросы, вы получаете чёткое понимание что и сколько стоит. Всё занимает 30 минут в Telegram.</p></div>
+    </div>
+    <div class="process-item">
+      <div class="process-step">02 —</div>
+      <div><h3 class="process-content-title">Дизайн и разработка</h3><p class="process-content-desc">Делаю сайт — показываю промежуточные результаты, вносим правки по ходу. Никаких сюрпризов в конце. Вы видите прогресс каждый день.</p></div>
+    </div>
+    <div class="process-item">
+      <div class="process-step">03 —</div>
+      <div><h3 class="process-content-title">Тестирование и правки</h3><p class="process-content-desc">Проверяем на всех устройствах — телефон, планшет, компьютер. Вносим финальные правки пока результат не устроит вас на 100%.</p></div>
+    </div>
+    <div class="process-item">
+      <div class="process-step">04 —</div>
+      <div><h3 class="process-content-title">Запуск</h3><p class="process-content-desc">Деплоим сайт, настраиваем домен и хостинг. Вы получаете готовый работающий продукт, все исходники и полное руководство по управлению.</p></div>
+    </div>
+    <div class="process-item">
+      <div class="process-step">05 —</div>
+      <div><h3 class="process-content-title">Поддержка</h3><p class="process-content-desc">Остаюсь на связи после запуска. Могу взять сайт на ежемесячное обслуживание — обновления, правки, новые разделы, SEO продвижение.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonial-section reveal">
+  <p class="section-label" style="text-align:center">// Отзывы клиентов</p>
+  <h2 class="testimonial-title">Что говорят наши клиенты</h2>
+  <div class="testimonial-grid">
+    <div class="testimonial-card">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">"Сайт сделали за 4 дня — я была в шоке от скорости. Качество отличное, всё как я хотела. Уже получила первых клиентов через сайт!"</p>
+      <div class="testimonial-author">Малика Рашидова</div>
+      <div class="testimonial-role">Владелец салона красоты</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">"Обращался в студии — там просили $5000 и 2 месяца. Access сделали за $1500 и 10 дней. Сайт выглядит дороже чем стоил!"</p>
+      <div class="testimonial-author">Алишер Каримов</div>
+      <div class="testimonial-role">Основатель строительной компании</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">"Фарангис очень профессиональна и всегда на связи. Объясняет каждый шаг, учитывает все пожелания. Рекомендую всем!"</p>
+      <div class="testimonial-author">Зебо Назарова</div>
+      <div class="testimonial-role">Врач, частная практика</div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section reveal" id="faq">
+  <p class="section-label">// Вопросы и ответы</p>
+  <h2 class="faq-title">Частые вопросы</h2>
+  <div class="faq-item">
+    <button class="faq-question">Сколько времени занимает разработка сайта? <span class="faq-arrow">+</span></button>
+    <div class="faq-answer">Лендинг — 1-3 дня, сайт-визитка — 3-5 дней, корпоративный сайт — 1-2 недели, интернет-магазин — 2-4 недели. Сроки зависят от сложности проекта и скорости обратной связи от вас.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-question">Смогу ли я сам редактировать сайт после запуска? <span class="faq-arrow">+</span></button>
+    <div class="faq-answer">Да! Вы получаете полный исходный код. Ваш программист сможет дорабатывать что угодно. Также можем настроить удобную админ-панель для самостоятельного редактирования текстов и изображений без знания кода.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-question">Что входит в стоимость? <span class="faq-arrow">+</span></button>
+    <div class="faq-answer">Дизайн, вёрстка, адаптивность под все устройства, базовая SEO оптимизация, размещение на хостинге, настройка домена, обучение как пользоваться сайтом. Никаких скрытых доплат.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-question">Нужно ли платить за хостинг отдельно? <span class="faq-arrow">+</span></button>
+    <div class="faq-answer">Для простых сайтов — хостинг бесплатный (Netlify). Для сложных проектов с базой данных — Supabase, тарифы от $0 до $25/мес в зависимости от нагрузки. Всё обсуждается заранее.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-question">Работаете ли вы с клиентами из других стран? <span class="faq-arrow">+</span></button>
+    <div class="faq-answer">Да! Работаем со всем СНГ и международными клиентами. Общение в Telegram, оплата удобным для вас способом. Часовой пояс не помеха — всегда найдём удобное время для созвона.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-question">Есть ли гарантия результата? <span class="faq-arrow">+</span></button>
+    <div class="faq-answer">Да! Мы вносим правки до тех пор пока результат вас полностью не устроит. Оплата поэтапная — 50% аванс, 50% после сдачи работы. Вы ничем не рискуете.</div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contact">
+  <div class="cta-bg"></div>
+  <p class="cta-label">Готовы начать?</p>
+  <h2 class="cta-title">Давайте<br><span class="outline">создадим</span><br>ваш сайт.</h2>
+  <p class="cta-subtitle">Бесплатная консультация · Ответ в течение часа · Без обязательств</p>
+  <div class="cta-actions">
+    <a href="https://t.me/access_ai_solutions" target="_blank" class="btn-primary">✈ Написать в Telegram</a>
+    <a href="https://wa.me/992905003456" target="_blank" class="btn-wa">💬 Написать в WhatsApp</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Access<span>.</span> <small style="font-size:12px;font-weight:600;opacity:0.7;font-family:'Manrope',sans-serif;">AI Solutions</small></div>
+  <div class="footer-copy">© 2026 Access AI Solutions. Все права защищены.</div>
+  <div class="footer-links">
+    <a onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Услуги</a>
+    <a onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth'})">Работы</a>
+    <a onclick="document.getElementById('faq').scrollIntoView({behavior:'smooth'})">FAQ</a>
+    <a onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Контакт</a>
+  </div>
+</footer>
+
+<!-- CHAT -->
+<button class="chat-btn" id="chatBtn">💬</button>
+<div class="chat-window" id="chatWindow">
+  <div class="chat-header">
+    <div class="chat-avatar">🤖</div>
+    <div class="chat-header-info"><h4>Access AI</h4><p>● Онлайн</p></div>
+    <button class="chat-close" id="chatClose">×</button>
+  </div>
+  <div class="chat-messages" id="chatMessages">
+    <div class="msg bot">Привет! 👋 Я AI-ассистент студии Access. Расскажу об услугах, ценах и сроках. Чем могу помочь?</div>
+  </div>
+  <div class="chat-input-area">
+    <input type="text" class="chat-input" id="chatInput" placeholder="Напишите вопрос...">
+    <button class="chat-send" id="chatSend">➤</button>
+  </div>
+</div>
+
+<script>
+// PROGRESS BAR
+const progress = document.getElementById('progress');
+window.addEventListener('scroll', () => {
+  const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+  progress.style.width = pct + '%';
+});
+
+// REVEAL
+document.body.classList.add('js-loaded');
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.05 });
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+// FAQ
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+
+// CHAT
+const chatBtn = document.getElementById('chatBtn');
+const chatWindow = document.getElementById('chatWindow');
+const chatClose = document.getElementById('chatClose');
+const chatInput = document.getElementById('chatInput');
+const chatSend = document.getElementById('chatSend');
+const chatMessages = document.getElementById('chatMessages');
+
+chatBtn.addEventListener('click', () => chatWindow.classList.toggle('open'));
+chatClose.addEventListener('click', () => chatWindow.classList.remove('open'));
+
+const history = [];
+
+async function sendMessage() {
+  const text = chatInput.value.trim();
+  if (!text) return;
+  chatMessages.innerHTML += `<div class="msg user">${text}</div>`;
+  chatInput.value = '';
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+  const dots = document.createElement('div');
+  dots.className = 'typing-dots';
+  dots.innerHTML = '<span></span><span></span><span></span>';
+  chatMessages.appendChild(dots);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+  history.push({ role: 'user', content: text });
+  try {
+    const res = await fetch('/.netlify/functions/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ messages: history })
+    });
+    const data = await res.json();
+    const reply = data.reply || 'Напишите нам: @access_ai_solutions 😊';
+    history.push({ role: 'assistant', content: reply });
+    dots.remove();
+    chatMessages.innerHTML += `<div class="msg bot">${reply}</div>`;
+  } catch(e) {
+    dots.remove();
+    chatMessages.innerHTML += `<div class="msg bot">Напишите нам: @access_ai_solutions 😊</div>`;
+  }
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+chatSend.addEventListener('click', sendMessage);
+chatInput.addEventListener('keydown', e => { if (e.key === 'Enter') sendMessage(); });
+</script>
+</body>
+</html>
