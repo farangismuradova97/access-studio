@@ -798,12 +798,30 @@ function handleDrop(e) {
 // Form submit
 document.getElementById('orderForm').addEventListener('submit', async function(e) {
   e.preventDefault();
+
   const formData = new FormData(this);
+  const data = {};
+  formData.forEach((value, key) => {
+    if (data[key]) {
+      data[key] = data[key] + ', ' + value;
+    } else {
+      data[key] = value;
+    }
+  });
+
   try {
-    await fetch('/', { method: 'POST', body: formData });
+    // Отправляем уведомление в Telegram
+    await fetch('/.netlify/functions/notify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+
+    // Показываем успех
     this.style.display = 'none';
     document.getElementById('successMsg').style.display = 'block';
     window.scrollTo({ top: 0, behavior: 'smooth' });
+
   } catch(err) {
     alert('Ошибка отправки. Напишите нам напрямую: @access_ai_solutions');
   }
