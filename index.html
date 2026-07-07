@@ -311,6 +311,8 @@ section { position:relative; z-index:1; }
 .service-features li { font-family: 'Manrope', sans-serif; font-size: 14px; color: var(--muted); padding: 4px 0; }
 .service-features li::before { content: '✓ '; color: var(--accent); font-weight: 700; }
 .service-price { font-size: 22px; font-weight: 800; color: var(--accent); }
+  .service-btn { display: inline-block; margin-top: 16px; padding: 10px 20px; background: rgba(0,229,255,0.1); border: 1px solid rgba(0,229,255,0.3); color: var(--accent); font-family: 'Manrope', sans-serif; font-size: 14px; font-weight: 600; text-decoration: none; border-radius: 6px; transition: all 0.2s; }
+  .service-btn:hover { background: var(--accent); color: #080a0f; }
 
 /* WHY US */
 .whyus-section { padding: 120px 6%; background: #0d1117; border-top: 1px solid var(--border); }
@@ -491,8 +493,8 @@ footer { padding: 48px 6%; border-top: 1px solid var(--border); display: flex; j
     </h1>
     <p class="hero-desc">Создаём профессиональные веб-сайты под ключ — быстро, красиво и без лишних слов. От лендинга до интернет-магазина.</p>
     <div class="hero-actions">
-      <a href="/order.html" class="btn-primary">Начать проект</a>
-      <a href="javascript:void(0)" onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth'})" class="btn-ghost">Посмотреть работы</a>
+      <a href="https://t.me/access_ai_solutions" target="_blank" class="btn-primary">✈ Написать в Telegram</a>
+      <a href="/order.html" class="btn-ghost">📋 Заполнить заявку</a>
     </div>
     <div class="hero-stats">
       <div><div class="stat-num">100<span>+</span></div><div class="stat-label">проектов</div></div>
@@ -643,7 +645,8 @@ footer { padding: 48px 6%; border-top: 1px solid var(--border); display: flex; j
         <li>Формы захвата лидов</li>
         <li>Подключение аналитики</li>
       </ul>
-      <div class="service-price">от $800 · 1-3 дня</div>
+      <div class="service-price">от $500 · 1-3 дня</div>
+      <a href="https://t.me/access_ai_solutions" target="_blank" class="service-btn">✈ Написать в Telegram</a>
     </div>
     <div class="service-card">
       <p class="service-num">02 —</p>
@@ -655,7 +658,8 @@ footer { padding: 48px 6%; border-top: 1px solid var(--border); display: flex; j
         <li>Форма обратной связи</li>
         <li>SEO оптимизация</li>
       </ul>
-      <div class="service-price">от $1 500 · 3-5 дней</div>
+      <div class="service-price">от $1 000 · 3-5 дней</div>
+      <a href="https://t.me/access_ai_solutions" target="_blank" class="service-btn">✈ Написать в Telegram</a>
     </div>
     <div class="service-card">
       <p class="service-num">03 —</p>
@@ -667,7 +671,8 @@ footer { padding: 48px 6%; border-top: 1px solid var(--border); display: flex; j
         <li>Личный кабинет</li>
         <li>Многоязычность</li>
       </ul>
-      <div class="service-price">от $3 000 · 1-2 недели</div>
+      <div class="service-price">от $2 000 · 1-2 недели</div>
+      <a href="https://t.me/access_ai_solutions" target="_blank" class="service-btn">✈ Написать в Telegram</a>
     </div>
     <div class="service-card">
       <p class="service-num">04 —</p>
@@ -679,7 +684,8 @@ footer { padding: 48px 6%; border-top: 1px solid var(--border); display: flex; j
         <li>Личный кабинет</li>
         <li>Управление заказами</li>
       </ul>
-      <div class="service-price">от $5 000 · 2-4 недели</div>
+      <div class="service-price">от $3 000 · 2-4 недели</div>
+      <a href="https://t.me/access_ai_solutions" target="_blank" class="service-btn">✈ Написать в Telegram</a>
     </div>
   </div>
 </section>
@@ -959,8 +965,9 @@ footer { padding: 48px 6%; border-top: 1px solid var(--border); display: flex; j
   <h2 class="cta-title">Давайте<br><span class="outline">создадим</span><br>ваш сайт.</h2>
   <p class="cta-subtitle">Бесплатная консультация · Ответ в течение часа · Без обязательств</p>
   <div class="cta-actions">
-    <a href="/order.html" class="btn-primary">📋 Заполнить заявку</a>
-    <a href="https://t.me/access_ai_solutions" target="_blank" class="btn-wa">✈ Написать в Telegram</a>
+    <a href="https://t.me/access_ai_solutions" target="_blank" class="btn-primary">✈ Написать в Telegram</a>
+    <a href="https://wa.me/992905003456" target="_blank" class="btn-wa">💬 WhatsApp</a>
+    <a href="/order.html" class="btn-ghost">📋 Заполнить заявку</a>
   </div>
 </section>
 
@@ -1064,5 +1071,221 @@ async function sendMessage() {
 chatSend.addEventListener('click', sendMessage);
 chatInput.addEventListener('keydown', e => { if (e.key === 'Enter') sendMessage(); });
 </script>
+
+<!-- SUMMER SALE MODAL -->
+<style>
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 9000;
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(6px);
+  display: flex; align-items: center; justify-content: center;
+  padding: 16px;
+  animation: fadeIn 0.3s ease;
+}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.modal-box {
+  background: #0d1117;
+  border: 1px solid rgba(0,229,255,0.3);
+  border-radius: 20px;
+  padding: 28px 24px;
+  max-width: 440px; width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 0 60px rgba(0,229,255,0.15);
+  animation: slideUp 0.4s ease;
+}
+@keyframes slideUp { from { opacity:0; transform: translateY(30px); } to { opacity:1; transform: translateY(0); } }
+
+.modal-close {
+  position: absolute; top: 12px; right: 16px;
+  background: rgba(255,255,255,0.1); border: none; color: #fff;
+  font-size: 18px; cursor: pointer; transition: all 0.2s;
+  width: 32px; height: 32px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  line-height: 1; z-index: 1;
+}
+.modal-close:hover { background: rgba(255,255,255,0.2); }
+
+.modal-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #ff6b35, #f7c59f);
+  color: #080a0f; font-family: 'Syne', sans-serif;
+  font-size: 11px; font-weight: 800;
+  padding: 5px 12px; border-radius: 20px;
+  letter-spacing: 0.05em; margin-bottom: 12px;
+  animation: pulse2 1.5s ease-in-out infinite;
+}
+@keyframes pulse2 { 0%,100%{transform:scale(1);} 50%{transform:scale(1.04);} }
+
+.modal-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 28px; font-weight: 800;
+  letter-spacing: -1px; line-height: 1.1;
+  margin-bottom: 6px;
+}
+.modal-title span { color: var(--accent); }
+
+.modal-subtitle {
+  font-family: 'Manrope', sans-serif;
+  font-size: 13px; color: var(--muted);
+  margin-bottom: 20px; line-height: 1.5;
+}
+
+.modal-prices {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 8px; margin-bottom: 20px;
+}
+.modal-price-item {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px; padding: 12px;
+}
+.modal-price-name {
+  font-family: 'Manrope', sans-serif;
+  font-size: 12px; font-weight: 600; color: var(--muted);
+  margin-bottom: 6px;
+}
+.modal-price-old {
+  font-family: 'Manrope', sans-serif;
+  font-size: 12px; color: rgba(255,100,100,0.7);
+  text-decoration: line-through; margin-bottom: 2px;
+}
+.modal-price-new {
+  font-family: 'Syne', sans-serif;
+  font-size: 18px; font-weight: 800; color: var(--accent);
+  letter-spacing: -0.5px;
+}
+.modal-price-save {
+  font-family: 'Manrope', sans-serif;
+  font-size: 10px; color: #22c55e; font-weight: 600;
+  margin-top: 2px;
+}
+
+.modal-timer {
+  text-align: center; margin-bottom: 20px;
+}
+.modal-timer-label {
+  font-family: 'Manrope', sans-serif;
+  font-size: 11px; color: var(--muted); margin-bottom: 8px;
+  letter-spacing: 0.05em;
+}
+.modal-timer-boxes {
+  display: flex; justify-content: center; gap: 6px; align-items: center;
+}
+.timer-box {
+  background: rgba(0,229,255,0.1);
+  border: 1px solid rgba(0,229,255,0.2);
+  border-radius: 8px; padding: 6px 10px; text-align: center; min-width: 46px;
+}
+.timer-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 20px; font-weight: 800; color: var(--accent); line-height: 1;
+}
+.timer-unit {
+  font-family: 'Manrope', sans-serif;
+  font-size: 9px; color: var(--muted); margin-top: 2px;
+}
+.timer-sep { font-size: 18px; font-weight: 800; color: var(--accent); }
+
+.modal-btn {
+  display: block; width: 100%;
+  padding: 14px; background: var(--accent); color: #080a0f;
+  font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 700;
+  text-decoration: none; text-align: center; border-radius: 10px;
+  transition: all 0.2s; margin-bottom: 10px;
+}
+.modal-btn:hover { background: var(--accent2); color: #fff; }
+
+.modal-skip {
+  text-align: center;
+  font-family: 'Manrope', sans-serif;
+  font-size: 12px; color: var(--muted);
+  cursor: pointer; transition: color 0.2s;
+}
+.modal-skip:hover { color: var(--text); }
+</style>
+
+<div class="modal-overlay" id="saleModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">×</button>
+
+    <div class="modal-badge">☀️ ЛЕТНЯЯ АКЦИЯ — ИЮЛЬ 2026</div>
+
+    <h2 class="modal-title">Скидка <span>30%</span><br>на все сайты!</h2>
+    <p class="modal-subtitle">Только в июле — делаем сайты по специальным ценам. Успей заказать до конца месяца!</p>
+
+    <div class="modal-prices">
+      <div class="modal-price-item">
+        <div class="modal-price-name">🎯 Лендинг</div>
+        <div class="modal-price-old">от $500</div>
+        <div class="modal-price-new">от $350</div>
+        <div class="modal-price-save">экономия $150</div>
+      </div>
+      <div class="modal-price-item">
+        <div class="modal-price-name">💼 Сайт-визитка</div>
+        <div class="modal-price-old">от $1 000</div>
+        <div class="modal-price-new">от $700</div>
+        <div class="modal-price-save">экономия $300</div>
+      </div>
+      <div class="modal-price-item">
+        <div class="modal-price-name">🏢 Корпоративный</div>
+        <div class="modal-price-old">от $2 000</div>
+        <div class="modal-price-new">от $1 400</div>
+        <div class="modal-price-save">экономия $600</div>
+      </div>
+      <div class="modal-price-item">
+        <div class="modal-price-name">🛍️ Магазин</div>
+        <div class="modal-price-old">от $3 000</div>
+        <div class="modal-price-new">от $2 100</div>
+        <div class="modal-price-save">экономия $900</div>
+      </div>
+    </div>
+
+    <div class="modal-timer">
+      <div class="modal-timer-label">⏰ АКЦИЯ ЗАКАНЧИВАЕТСЯ ЧЕРЕЗ</div>
+      <div class="modal-timer-boxes">
+        <div class="timer-box"><div class="timer-num" id="tDays">00</div><div class="timer-unit">дней</div></div>
+        <div class="timer-sep">:</div>
+        <div class="timer-box"><div class="timer-num" id="tHours">00</div><div class="timer-unit">часов</div></div>
+        <div class="timer-sep">:</div>
+        <div class="timer-box"><div class="timer-num" id="tMins">00</div><div class="timer-unit">минут</div></div>
+        <div class="timer-sep">:</div>
+        <div class="timer-box"><div class="timer-num" id="tSecs">00</div><div class="timer-unit">секунд</div></div>
+      </div>
+    </div>
+
+    <a href="https://t.me/access_ai_solutions" target="_blank" class="modal-btn" onclick="closeModal()">
+      ✈ Успеть со скидкой — написать в Telegram
+    </a>
+    <p class="modal-skip" onclick="closeModal()">Нет, я заплачу полную цену →</p>
+  </div>
+</div>
+
+<script>
+function closeModal() {
+  document.getElementById('saleModal').style.display = 'none';
+}
+
+// Таймер до конца июля 2026
+function updateTimer() {
+  const end = new Date('2026-07-31T23:59:59');
+  const now = new Date();
+  const diff = end - now;
+  if (diff <= 0) { document.getElementById('saleModal').style.display = 'none'; return; }
+  const days = Math.floor(diff / 86400000);
+  const hours = Math.floor((diff % 86400000) / 3600000);
+  const mins = Math.floor((diff % 3600000) / 60000);
+  const secs = Math.floor((diff % 60000) / 1000);
+  document.getElementById('tDays').textContent = String(days).padStart(2,'0');
+  document.getElementById('tHours').textContent = String(hours).padStart(2,'0');
+  document.getElementById('tMins').textContent = String(mins).padStart(2,'0');
+  document.getElementById('tSecs').textContent = String(secs).padStart(2,'0');
+}
+updateTimer();
+setInterval(updateTimer, 1000);
+</script>
+
 </body>
 </html>
