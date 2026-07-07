@@ -1087,6 +1087,61 @@ async function sendMessage() {
 
 chatSend.addEventListener('click', sendMessage);
 chatInput.addEventListener('keydown', e => { if (e.key === 'Enter') sendMessage(); });
+
+// META PIXEL EVENTS
+// Contact — Telegram clicks
+document.querySelectorAll('a[href*="t.me"]').forEach(el => {
+  el.addEventListener('click', () => {
+    if(typeof fbq !== 'undefined') fbq('track', 'Contact', { content_name: 'Telegram' });
+  });
+});
+
+// Contact — WhatsApp clicks
+document.querySelectorAll('a[href*="wa.me"]').forEach(el => {
+  el.addEventListener('click', () => {
+    if(typeof fbq !== 'undefined') fbq('track', 'Contact', { content_name: 'WhatsApp' });
+  });
+});
+
+// InitiateCheckout — order form page link clicks
+document.querySelectorAll('a[href*="order"]').forEach(el => {
+  el.addEventListener('click', () => {
+    if(typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout');
+  });
+});
+
+// ViewContent — when services section is visible
+const servicesSection = document.getElementById('services');
+if (servicesSection) {
+  const servObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        if(typeof fbq !== 'undefined') fbq('track', 'ViewContent', { content_name: 'Services' });
+        servObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  servObs.observe(servicesSection);
+}
+
+// ViewContent — when portfolio section is visible
+const portfolioSection = document.getElementById('portfolio');
+if (portfolioSection) {
+  const portObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        if(typeof fbq !== 'undefined') fbq('track', 'ViewContent', { content_name: 'Portfolio' });
+        portObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  portObs.observe(portfolioSection);
+}
+
+// Lead — modal CTA click
+document.querySelector('.modal-btn')?.addEventListener('click', () => {
+  if(typeof fbq !== 'undefined') fbq('track', 'Lead', { content_name: 'Modal Promo' });
+});
 </script>
 
 <!-- SUMMER SALE MODAL -->
