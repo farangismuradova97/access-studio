@@ -12,7 +12,7 @@ exports.handler = async function(event, context) {
         'anthropic-version': '2023-06-01'
       },
       body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
+model: 'claude-sonnet-4-6',
         max_tokens: 500,
         system: 'Ты AI-ассистент веб-студии Access AI Solutions. Основатель — Фарангис. Telegram: @access_ai_solutions. WhatsApp: +992905003456. Услуги: Лендинг от $500 (1-3 дня), Сайт-визитка от $1000 (3-5 дней), Корпоративный от $2000 (1-2 нед), Магазин от $3000 (2-4 нед), Поддержка от $100/мес. Отвечай коротко и дружелюбно.',
         messages: messages
