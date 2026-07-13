@@ -1,9 +1,9 @@
 [build]
   publish = "."
-  functions = "functions/functions"
+  functions = "functions"
 
 [functions]
-  directory = "functions/functions"
+  directory = "functions"
 
 [[redirects]]
   from = "/api/*"
