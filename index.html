@@ -170,6 +170,51 @@ nav {
 }
 .nav-cta:hover { background: var(--accent); color: #080a0f; }
 
+/* BURGER */
+.burger {
+  display: none; flex-direction: column; gap: 5px;
+  cursor: pointer; padding: 4px; background: none; border: none;
+}
+.burger span {
+  display: block; width: 24px; height: 2px;
+  background: var(--text); border-radius: 2px;
+  transition: all 0.3s ease;
+}
+.burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.burger.open span:nth-child(2) { opacity: 0; }
+.burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* MOBILE MENU */
+.mobile-menu {
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(8,10,15,0.98);
+  backdrop-filter: blur(20px);
+  z-index: 99;
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center; gap: 32px;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+}
+.mobile-menu.open { transform: translateX(0); }
+.mobile-menu a {
+  font-family: 'Syne', sans-serif; font-size: 28px; font-weight: 700;
+  color: var(--text); text-decoration: none; transition: color 0.2s;
+}
+.mobile-menu a:hover { color: var(--accent); }
+.mobile-menu .mobile-cta {
+  margin-top: 16px; padding: 16px 40px;
+  background: var(--accent); color: #080a0f;
+  font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700;
+  text-decoration: none; border-radius: 4px;
+}
+.mobile-menu .mobile-tg {
+  padding: 14px 32px;
+  border: 1px solid rgba(255,255,255,0.2);
+  color: var(--text); font-family: 'Syne', sans-serif;
+  font-size: 16px; font-weight: 600;
+  text-decoration: none; border-radius: 4px;
+}
+
 /* HERO */
 .hero {
   min-height: 100vh;
@@ -467,6 +512,8 @@ footer { padding: 48px 6%; border-top: 1px solid var(--border); display: flex; j
 @media (max-width: 900px) {
   nav { padding:20px 24px; }
   .nav-links { display:none; }
+  .nav-cta { display:none; }
+  .burger { display:flex; }
   .hero { grid-template-columns:1fr; padding:110px 24px 60px; gap:0; }
   .hero-right { display:none; }
   .hero-title { font-size:48px; }
@@ -503,7 +550,21 @@ footer { padding: 48px 6%; border-top: 1px solid var(--border); display: flex; j
     <li><a href="javascript:void(0)" onclick="document.getElementById('faq').scrollIntoView({behavior:'smooth'})">FAQ</a></li>
   </ul>
   <a href="/order.html" class="nav-cta">Заказать проект</a>
+  <button class="burger" id="burger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="javascript:void(0)" onclick="scrollToSection('services')">Услуги</a>
+  <a href="javascript:void(0)" onclick="scrollToSection('apps')">Приложения</a>
+  <a href="javascript:void(0)" onclick="scrollToSection('portfolio')">Работы</a>
+  <a href="javascript:void(0)" onclick="scrollToSection('process')">Процесс</a>
+  <a href="javascript:void(0)" onclick="scrollToSection('faq')">FAQ</a>
+  <a href="/configurator.html" class="mobile-cta">🛒 Купить сайт</a>
+  <a href="https://t.me/access_ai_solutions" target="_blank" class="mobile-tg">✈ Написать в Telegram</a>
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -861,6 +922,12 @@ footer { padding: 48px 6%; border-top: 1px solid var(--border); display: flex; j
     <p class="portfolio-subtitle">Каждый проект — уникальное решение под задачи клиента.</p>
   </div>
   <div class="portfolio-grid reveal">
+    <a href="https://medicaltechnologies.online" target="_blank" rel="noopener noreferrer" class="portfolio-card">
+      <p class="portfolio-tag">Медицина · Корпоративный сайт</p>
+      <h3 class="portfolio-name">Medical Technologies</h3>
+      <p class="portfolio-desc">Корпоративный сайт медицинской компании. Современный дизайн, удобная навигация, адаптивная вёрстка.</p>
+      <div class="portfolio-line"></div>
+    </a>
     <a href="https://nephrolife.online" target="_blank" rel="noopener noreferrer" class="portfolio-card">
       <p class="portfolio-tag">Медицина · Веб-приложение</p>
       <h3 class="portfolio-name">Nephrolife</h3>
@@ -1111,6 +1178,22 @@ async function sendMessage() {
 
 chatSend.addEventListener('click', sendMessage);
 chatInput.addEventListener('keydown', e => { if (e.key === 'Enter') sendMessage(); });
+
+// BURGER MENU
+function toggleMenu() {
+  const burger = document.getElementById('burger');
+  const menu = document.getElementById('mobileMenu');
+  burger.classList.toggle('open');
+  menu.classList.toggle('open');
+  document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+}
+
+function scrollToSection(id) {
+  toggleMenu();
+  setTimeout(() => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  }, 300);
+}
 
 // META PIXEL EVENTS
 // Contact — Telegram clicks
