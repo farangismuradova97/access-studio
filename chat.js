@@ -4,6 +4,7 @@ exports.handler = async function(event, context) {
   }
   try {
     const { messages } = JSON.parse(event.body);
+    
     const response = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
       headers: {
@@ -12,25 +13,36 @@ exports.handler = async function(event, context) {
         'anthropic-version': '2023-06-01'
       },
       body: JSON.stringify({
-model: 'claude-sonnet-4-6',
+        model: 'claude-sonnet-4-6',
         max_tokens: 500,
-        system: 'Ты AI-ассистент веб-студии Access AI Solutions. Основатель — Фарангис. Telegram: @access_ai_solutions. WhatsApp: +992905003456. Услуги: Лендинг от $500 (1-3 дня), Сайт-визитка от $1000 (3-5 дней), Корпоративный от $2000 (1-2 нед), Магазин от $3000 (2-4 нед), Поддержка от $100/мес. Отвечай коротко и дружелюбно.',
+        system: 'Ты AI-ассистент веб-студии Access AI Solutions. Основатель — Фарангис. Telegram: @access_ai_solutions. Отвечай коротко и дружелюбно.',
         messages: messages
       })
     });
+
     const data = await response.json();
+    console.log('API response:', JSON.stringify(data));
+
+    if (!response.ok) {
+      console.error('API error:', data);
+      return {
+        statusCode: 200,
+        headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
+        body: JSON.stringify({ reply: 'Напишите нам: @access_ai_solutions 😊' })
+      };
+    }
+
     return {
       statusCode: 200,
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
-      },
+      headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
       body: JSON.stringify({ reply: data.content[0].text })
     };
   } catch (error) {
+    console.error('Error:', error.message);
     return {
-      statusCode: 500,
-      body: JSON.stringify({ error: 'Ошибка. Напишите: @access_ai_solutions' })
+      statusCode: 200,
+      headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
+      body: JSON.stringify({ reply: 'Напишите нам: @access_ai_solutions 😊' })
     };
   }
 };
