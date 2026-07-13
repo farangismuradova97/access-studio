@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Конфигуратор сайта — Access AI Solutions</title>
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1358120169601616');fbq('track','PageView');fbq('track','InitiateCheckout');
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{--bg:#080a0f;--surface:#111520;--border:rgba(255,255,255,0.08);--accent:#00e5ff;--accent2:#7b61ff;--text:#f0f2f7;--muted:#a8b0c0;}
+html{background:#080a0f;}
+body{background:#080a0f;color:var(--text);font-family:'Syne',sans-serif;min-height:100vh;}
+.container{background:#080a0f;}
+.step-content{background:#080a0f;}
+.cards-grid,.check-grid,.radio-grid{background:transparent;}
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(0,229,255,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,255,0.02) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0;}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 6%;border-bottom:1px solid var(--border);background:rgba(8,10,15,0.92);backdrop-filter:blur(20px);}
+.logo{font-size:18px;font-weight:800;color:var(--text);text-decoration:none;}
+.logo span{color:var(--accent);}
+.back-btn{font-family:'Manrope',sans-serif;font-size:14px;font-weight:600;color:var(--muted);text-decoration:none;transition:color 0.2s;}
+.back-btn:hover{color:var(--accent);}
+
+.container{max-width:900px;margin:0 auto;padding:100px 24px 80px;position:relative;z-index:1;}
+
+.page-label{font-family:'Manrope',sans-serif;font-size:12px;font-weight:700;color:var(--accent);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;}
+.page-title{font-size:clamp(32px,5vw,52px);font-weight:800;letter-spacing:-2px;line-height:1;margin-bottom:12px;}
+.page-subtitle{font-family:'Manrope',sans-serif;font-size:15px;color:var(--muted);margin-bottom:40px;line-height:1.6;}
+
+/* STEPS */
+.steps{display:flex;gap:0;margin-bottom:48px;position:relative;}
+.steps::before{content:'';position:absolute;top:20px;left:20px;right:20px;height:2px;background:var(--border);z-index:0;}
+.step{display:flex;flex-direction:column;align-items:center;gap:8px;flex:1;position:relative;z-index:1;}
+.step-num{width:40px;height:40px;border-radius:50%;background:var(--surface);border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:var(--muted);transition:all 0.3s;}
+.step.active .step-num{background:var(--accent);border-color:var(--accent);color:#080a0f;}
+.step.done .step-num{background:rgba(0,229,255,0.2);border-color:var(--accent);color:var(--accent);}
+.step-label{font-family:'Manrope',sans-serif;font-size:11px;color:var(--muted);text-align:center;font-weight:600;}
+.step.active .step-label{color:var(--accent);}
+
+/* STEP CONTENT */
+.step-content{display:none;}
+.step-content.active{display:block;}
+
+.step-title{font-size:22px;font-weight:700;margin-bottom:8px;}
+.step-hint{font-family:'Manrope',sans-serif;font-size:14px;color:var(--muted);margin-bottom:24px;}
+
+/* CARDS */
+.cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px;}
+.card-option{background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:12px;padding:20px;cursor:pointer;transition:all 0.2s;text-align:center;}
+.card-option:hover{border-color:rgba(0,229,255,0.3);}
+.card-option.selected{border-color:var(--accent);background:rgba(0,229,255,0.06);}
+.card-icon{font-size:32px;margin-bottom:10px;}
+.card-name{font-size:15px;font-weight:700;margin-bottom:4px;}
+.card-desc{font-family:'Manrope',sans-serif;font-size:12px;color:var(--muted);line-height:1.5;margin-bottom:8px;}
+.card-price{font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;color:var(--accent);}
+
+/* CHECKBOXES */
+.check-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:24px;}
+.check-option{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:10px;padding:14px;cursor:pointer;transition:all 0.2s;}
+.check-option:hover{border-color:rgba(0,229,255,0.3);}
+.check-option.selected{border-color:var(--accent);background:rgba(0,229,255,0.05);}
+.check-box{width:20px;height:20px;border:2px solid var(--border);border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.2s;}
+.check-option.selected .check-box{background:var(--accent);border-color:var(--accent);}
+.check-box::after{content:'✓';font-size:12px;font-weight:700;color:#080a0f;display:none;}
+.check-option.selected .check-box::after{display:block;}
+.check-info{flex:1;}
+.check-name{font-family:'Manrope',sans-serif;font-size:14px;font-weight:600;color:var(--text);}
+.check-price{font-family:'Manrope',sans-serif;font-size:12px;color:var(--accent);margin-top:2px;}
+
+/* RADIO */
+.radio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:24px;}
+.radio-option{background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:10px;padding:16px;cursor:pointer;transition:all 0.2s;text-align:center;}
+.radio-option:hover{border-color:rgba(0,229,255,0.3);}
+.radio-option.selected{border-color:var(--accent);background:rgba(0,229,255,0.05);}
+.radio-name{font-family:'Manrope',sans-serif;font-size:13px;font-weight:600;color:var(--text);margin-bottom:4px;}
+.radio-price{font-family:'Manrope',sans-serif;font-size:12px;color:var(--accent);}
+
+/* PRICE BAR */
+.price-bar{position:fixed;bottom:0;left:0;right:0;background:#0d1117;border-top:1px solid rgba(0,229,255,0.2);padding:16px 24px;z-index:200;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.price-info{}
+.price-label{font-family:'Manrope',sans-serif;font-size:12px;color:var(--muted);}
+.price-total{font-size:28px;font-weight:800;color:var(--accent);letter-spacing:-1px;}
+.price-note{font-family:'Manrope',sans-serif;font-size:11px;color:var(--muted);margin-top:2px;}
+.price-actions{display:flex;gap:10px;flex-shrink:0;}
+
+.btn-next{padding:12px 28px;background:var(--accent);color:#080a0f;font-family:'Syne',sans-serif;font-size:14px;font-weight:700;border:none;border-radius:8px;cursor:pointer;transition:all 0.2s;}
+.btn-next:hover{background:var(--accent2);color:#fff;}
+.btn-next:disabled{background:rgba(255,255,255,0.1);color:var(--muted);cursor:not-allowed;}
+.btn-back{padding:12px 20px;background:transparent;border:1px solid var(--border);color:var(--muted);font-family:'Manrope',sans-serif;font-size:14px;font-weight:600;border-radius:8px;cursor:pointer;transition:all 0.2s;}
+.btn-back:hover{border-color:var(--accent);color:var(--accent);}
+
+/* SUMMARY */
+.summary-card{background:#0d1117;border:1px solid rgba(0,229,255,0.2);border-radius:16px;padding:32px;margin-bottom:24px;}
+.summary-title{font-size:18px;font-weight:700;margin-bottom:20px;color:var(--accent);}
+.summary-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border);font-family:'Manrope',sans-serif;font-size:14px;}
+.summary-row:last-child{border-bottom:none;}
+.summary-key{color:var(--muted);}
+.summary-val{font-weight:600;color:var(--text);}
+.summary-total-row{display:flex;justify-content:space-between;align-items:center;padding:16px 0 0;margin-top:8px;}
+.summary-total-label{font-size:16px;font-weight:700;}
+.summary-total-val{font-size:28px;font-weight:800;color:var(--accent);letter-spacing:-1px;}
+
+.payment-info{background:rgba(0,229,255,0.05);border:1px solid rgba(0,229,255,0.15);border-radius:12px;padding:20px;margin-bottom:24px;}
+.payment-title{font-family:'Manrope',sans-serif;font-size:14px;font-weight:700;color:var(--text);margin-bottom:12px;}
+.payment-step{display:flex;gap:12px;align-items:flex-start;margin-bottom:10px;}
+.payment-step:last-child{margin-bottom:0;}
+.payment-step-num{width:24px;height:24px;border-radius:50%;background:var(--accent);color:#080a0f;font-family:'Syne',sans-serif;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.payment-step-text{font-family:'Manrope',sans-serif;font-size:13px;color:var(--muted);line-height:1.5;}
+.payment-step-text strong{color:var(--text);}
+
+.contact-form{display:flex;flex-direction:column;gap:12px;margin-bottom:24px;}
+.form-input{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:13px 16px;color:var(--text);font-family:'Manrope',sans-serif;font-size:15px;outline:none;transition:border-color 0.2s;}
+.form-input:focus{border-color:rgba(0,229,255,0.4);}
+.form-input::placeholder{color:rgba(168,176,192,0.5);}
+
+.btn-order{display:block;width:100%;padding:18px;background:var(--accent);color:#080a0f;font-family:'Syne',sans-serif;font-size:16px;font-weight:700;border:none;border-radius:10px;cursor:pointer;transition:all 0.2s;text-align:center;}
+.btn-order:hover{background:var(--accent2);color:#fff;transform:translateY(-2px);}
+
+@media(max-width:768px){
+  .cards-grid{grid-template-columns:repeat(2,1fr);}
+  .check-grid{grid-template-columns:1fr;}
+  .radio-grid{grid-template-columns:repeat(2,1fr);}
+  .price-bar{flex-direction:column;gap:12px;}
+  .price-actions{width:100%;}
+  .btn-next,.btn-back{flex:1;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo">Access<span>.</span> <span style="font-size:12px;font-weight:600;opacity:0.7;font-family:'Manrope',sans-serif;">AI Solutions</span></a>
+  <a href="/" class="back-btn">← На главную</a>
+</nav>
+
+<div class="container">
+  <p class="page-label">// Конфигуратор</p>
+  <h1 class="page-title">Соберите свой сайт</h1>
+  <p class="page-subtitle">Выберите параметры — цена рассчитается автоматически. Занимает 2 минуты.</p>
+
+  <!-- STEPS -->
+  <div class="steps">
+    <div class="step active" id="step-nav-1">
+      <div class="step-num">1</div>
+      <div class="step-label">Тип сайта</div>
+    </div>
+    <div class="step" id="step-nav-2">
+      <div class="step-num">2</div>
+      <div class="step-label">Функционал</div>
+    </div>
+    <div class="step" id="step-nav-3">
+      <div class="step-num">3</div>
+      <div class="step-label">Дизайн</div>
+    </div>
+    <div class="step" id="step-nav-4">
+      <div class="step-num">4</div>
+      <div class="step-label">Итог</div>
+    </div>
+  </div>
+
+  <!-- STEP 1: ТИП САЙТА -->
+  <div class="step-content active" id="step-1">
+    <div class="step-title">Какой тип сайта вам нужен?</div>
+    <div class="step-hint">Выберите один вариант — это основа вашего проекта</div>
+    <div class="cards-grid">
+      <div class="card-option" onclick="selectType(this,'basic',299,'Базовый лендинг','1-2 дня')">
+        <div class="card-icon">⚡</div>
+        <div class="card-name">Базовый лендинг</div>
+        <div class="card-desc">Простой одностраничник. Без излишеств — только главное. Идеально для старта.</div>
+        <div class="card-price" style="color:#22c55e;">$299 🔥</div>
+      </div>
+      <div class="card-option" onclick="selectType(this,'landing',299,'Лендинг','1-3 дня')">
+        <div class="card-icon">🎯</div>
+        <div class="card-name">Лендинг</div>
+        <div class="card-desc">Одна страница для продажи товара или услуги</div>
+        <div class="card-price">от $299</div>
+      </div>
+      <div class="card-option" onclick="selectType(this,'business',399,'Сайт-визитка','3-5 дней')">
+        <div class="card-icon">💼</div>
+        <div class="card-name">Сайт-визитка</div>
+        <div class="card-desc">Многостраничный сайт для компании или специалиста</div>
+        <div class="card-price">от $399</div>
+      </div>
+      <div class="card-option" onclick="selectType(this,'corporate',597,'Корпоративный сайт','1-2 недели')">
+        <div class="card-icon">🏢</div>
+        <div class="card-name">Корпоративный</div>
+        <div class="card-desc">Полноценный сайт с разделами и интеграциями</div>
+        <div class="card-price">от $597</div>
+      </div>
+      <div class="card-option" onclick="selectType(this,'shop',797,'Интернет-магазин','2-4 недели')">
+        <div class="card-icon">🛍️</div>
+        <div class="card-name">Интернет-магазин</div>
+        <div class="card-desc">Каталог, корзина, оплата, личный кабинет</div>
+        <div class="card-price">от $797</div>
+      </div>
+      <div class="card-option" onclick="selectType(this,'pwa',1497,'PWA приложение','2-3 недели')">
+        <div class="card-icon">📱</div>
+        <div class="card-name">PWA приложение</div>
+        <div class="card-desc">Работает как мобильное, без App Store</div>
+        <div class="card-price">от $1 497</div>
+      </div>
+      <div class="card-option" onclick="selectType(this,'mobile',2997,'Мобильное приложение','1-2 месяца')">
+        <div class="card-icon">🚀</div>
+        <div class="card-name">Мобильное приложение</div>
+        <div class="card-desc">iOS + Android, публикация в App Store</div>
+        <div class="card-price">от $2 997</div>
+      </div>
+    </div>
+
+    <!-- Что входит в базовый -->
+    <div id="basicInfo" style="display:none;background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.2);border-radius:12px;padding:20px;margin-top:16px;">
+      <div style="font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;color:#22c55e;margin-bottom:12px;">✅ Что входит в Базовый лендинг за $299:</div>
+      <div style="font-family:'Manrope',sans-serif;font-size:13px;color:var(--muted);line-height:1.8;">
+        ✓ До 5 секций (шапка, о нас, услуги, преимущества, контакты)<br>
+        ✓ Адаптивность под телефон<br>
+        ✓ Кнопки в Telegram/WhatsApp<br>
+        ✓ Размещение на хостинге<br>
+        ✓ Срок: 1-2 дня
+      </div>
+      <div style="font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;color:rgba(255,100,100,0.8);margin-top:12px;margin-bottom:8px;">❌ Что НЕ входит:</div>
+      <div style="font-family:'Manrope',sans-serif;font-size:13px;color:var(--muted);line-height:1.8;">
+        ✗ Уникальный дизайн (используем готовый шаблон)<br>
+        ✗ Анимации и эффекты<br>
+        ✗ SEO оптимизация<br>
+        ✗ Дополнительные правки (только 1 раунд правок)<br>
+        ✗ Поддержка после сдачи
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2: ФУНКЦИОНАЛ -->
+  <div class="step-content" id="step-2">
+    <div class="step-title">Какой функционал нужен?</div>
+    <div class="step-hint">Выберите все нужные опции — цена обновится автоматически</div>
+    <div class="check-grid">
+      <div class="check-option" onclick="toggleFeature(this,'blog',150)">
+        <div class="check-box"></div>
+        <div class="check-info">
+          <div class="check-name">Блог / Новости</div>
+          <div class="check-price">+ $150</div>
+        </div>
+      </div>
+      <div class="check-option" onclick="toggleFeature(this,'payment',400)">
+        <div class="check-box"></div>
+        <div class="check-info">
+          <div class="check-name">Онлайн оплата</div>
+          <div class="check-price">+ $400</div>
+        </div>
+      </div>
+      <div class="check-option" onclick="toggleFeature(this,'cabinet',500)">
+        <div class="check-box"></div>
+        <div class="check-info">
+          <div class="check-name">Личный кабинет</div>
+          <div class="check-price">+ $500</div>
+        </div>
+      </div>
+      <div class="check-option" onclick="toggleFeature(this,'multilang',300)">
+        <div class="check-box"></div>
+        <div class="check-info">
+          <div class="check-name">Многоязычность</div>
+          <div class="check-price">+ $300</div>
+        </div>
+      </div>
+      <div class="check-option" onclick="toggleFeature(this,'ai_chat',600)">
+        <div class="check-box"></div>
+        <div class="check-info">
+          <div class="check-name">AI чат-ассистент</div>
+          <div class="check-price">+ $600</div>
+        </div>
+      </div>
+      <div class="check-option" onclick="toggleFeature(this,'crm',400)">
+        <div class="check-box"></div>
+        <div class="check-info">
+          <div class="check-name">CRM интеграция</div>
+          <div class="check-price">+ $400</div>
+        </div>
+      </div>
+      <div class="check-option" onclick="toggleFeature(this,'map',100)">
+        <div class="check-box"></div>
+        <div class="check-info">
+          <div class="check-name">Карта / геолокация</div>
+          <div class="check-price">+ $100</div>
+        </div>
+      </div>
+      <div class="check-option" onclick="toggleFeature(this,'push',200)">
+        <div class="check-box"></div>
+        <div class="check-info">
+          <div class="check-name">Push уведомления</div>
+          <div class="check-price">+ $200</div>
+        </div>
+      </div>
+      <div class="check-option" onclick="toggleFeature(this,'seo',250)">
+        <div class="check-box"></div>
+        <div class="check-info">
+          <div class="check-name">SEO оптимизация</div>
+          <div class="check-price">+ $250</div>
+        </div>
+      </div>
+      <div class="check-option" onclick="toggleFeature(this,'analytics',100)">
+        <div class="check-box"></div>
+        <div class="check-info">
+          <div class="check-name">Аналитика и статистика</div>
+          <div class="check-price">+ $100</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 3: ДИЗАЙН -->
+  <div class="step-content" id="step-3">
+    <div class="step-title">Выберите уровень дизайна</div>
+    <div class="step-hint">Это влияет на сложность и уникальность визуальной части</div>
+    <div class="radio-grid" style="margin-bottom:32px;">
+      <div class="radio-option" onclick="selectDesign(this,'standard',0)">
+        <div style="font-size:24px;margin-bottom:8px;">✨</div>
+        <div class="radio-name">Стандарт</div>
+        <div style="font-family:'Manrope',sans-serif;font-size:11px;color:var(--muted);margin:4px 0 6px;">Чистый современный дизайн</div>
+        <div class="radio-price">включено</div>
+      </div>
+      <div class="radio-option" onclick="selectDesign(this,'premium',500)">
+        <div style="font-size:24px;margin-bottom:8px;">💎</div>
+        <div class="radio-name">Премиум</div>
+        <div style="font-family:'Manrope',sans-serif;font-size:11px;color:var(--muted);margin:4px 0 6px;">Анимации, уникальные элементы</div>
+        <div class="radio-price">+ $500</div>
+      </div>
+      <div class="radio-option" onclick="selectDesign(this,'luxury',1000)">
+        <div style="font-size:24px;margin-bottom:8px;">👑</div>
+        <div class="radio-name">Люкс</div>
+        <div style="font-family:'Manrope',sans-serif;font-size:11px;color:var(--muted);margin:4px 0 6px;">Полностью кастомный дизайн</div>
+        <div class="radio-price">+ $1 000</div>
+      </div>
+    </div>
+
+    <div class="step-title" style="font-size:18px;margin-bottom:8px;">Срок разработки</div>
+    <div class="step-hint">Срочный заказ — дополнительная стоимость</div>
+    <div class="radio-grid">
+      <div class="radio-option" onclick="selectDeadline(this,'normal',0)">
+        <div style="font-size:24px;margin-bottom:8px;">📅</div>
+        <div class="radio-name">Стандартный</div>
+        <div style="font-family:'Manrope',sans-serif;font-size:11px;color:var(--muted);margin:4px 0 6px;">По плану проекта</div>
+        <div class="radio-price">включено</div>
+      </div>
+      <div class="radio-option" onclick="selectDeadline(this,'fast',300)">
+        <div style="font-size:24px;margin-bottom:8px;">⚡</div>
+        <div class="radio-name">Ускоренный</div>
+        <div style="font-family:'Manrope',sans-serif;font-size:11px;color:var(--muted);margin:4px 0 6px;">На 30% быстрее</div>
+        <div class="radio-price">+ $300</div>
+      </div>
+      <div class="radio-option" onclick="selectDeadline(this,'urgent',600)">
+        <div style="font-size:24px;margin-bottom:8px;">🔥</div>
+        <div class="radio-name">Срочный</div>
+        <div style="font-family:'Manrope',sans-serif;font-size:11px;color:var(--muted);margin:4px 0 6px;">Максимально быстро</div>
+        <div class="radio-price">+ $600</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 4: ИТОГ -->
+  <div class="step-content" id="step-4">
+    <div class="summary-card">
+      <div class="summary-title">📋 Состав заказа</div>
+      <div id="summaryRows"></div>
+      <div class="summary-total-row">
+        <div class="summary-total-label">Итого:</div>
+        <div class="summary-total-val" id="summaryTotal">$0</div>
+      </div>
+    </div>
+
+    <div class="payment-info">
+      <div class="payment-title">💳 Как проходит оплата и работа:</div>
+      <div class="payment-step">
+        <div class="payment-step-num">1</div>
+        <div class="payment-step-text"><strong>Предоплата 50%</strong> — после обсуждения деталей и подписания договора</div>
+      </div>
+      <div class="payment-step">
+        <div class="payment-step-num">2</div>
+        <div class="payment-step-text"><strong>Разработка</strong> — делаем сайт, показываем промежуточные результаты</div>
+      </div>
+      <div class="payment-step">
+        <div class="payment-step-num">3</div>
+        <div class="payment-step-text"><strong>Оставшиеся 50%</strong> — после сдачи и вашего одобрения</div>
+      </div>
+      <div class="payment-step">
+        <div class="payment-step-num">4</div>
+        <div class="payment-step-text"><strong>Запуск сайта</strong> — деплой, настройка домена, передача всех исходников</div>
+      </div>
+    </div>
+
+    <div class="contact-form">
+      <input type="text" class="form-input" id="clientName" placeholder="Ваше имя *" required>
+      <input type="text" class="form-input" id="clientMessenger" placeholder="Telegram или WhatsApp * (@username или +992...)" required>
+      <input type="text" class="form-input" id="clientComment" placeholder="Комментарий (необязательно)">
+    </div>
+
+    <button class="btn-order" id="orderBtn" onclick="submitOrder()">
+      ✈ Отправить заявку в Telegram
+    </button>
+    <p style="font-family:'Manrope',sans-serif;font-size:12px;color:var(--muted);text-align:center;margin-top:12px;">Ответим в течение 2 часов · Первая консультация бесплатно</p>
+  </div>
+
+</div>
+
+<!-- PRICE BAR -->
+<div class="price-bar" id="priceBar">
+  <div class="price-info">
+    <div class="price-label">Стоимость вашего сайта:</div>
+    <div class="price-total" id="priceTotal">$0</div>
+    <div class="price-note" id="priceDeadline">Выберите тип сайта</div>
+  </div>
+  <div class="price-actions">
+    <button class="btn-back" id="backBtn" onclick="prevStep()" style="display:none">← Назад</button>
+    <button class="btn-next" id="nextBtn" onclick="nextStep()" disabled>Далее →</button>
+  </div>
+</div>
+
+<script>
+// STATE
+const state = {
+  step: 1,
+  type: null,
+  typePrice: 0,
+  typeName: '',
+  typeDeadline: '',
+  features: {},
+  featuresTotal: 0,
+  design: null,
+  designPrice: 0,
+  deadline: null,
+  deadlinePrice: 0,
+};
+
+function totalPrice() {
+  return state.typePrice + state.featuresTotal + state.designPrice + state.deadlinePrice;
+}
+
+function updatePriceBar() {
+  const total = totalPrice();
+  document.getElementById('priceTotal').textContent = '$' + total.toLocaleString();
+  document.getElementById('priceDeadline').textContent = state.typeName
+    ? state.typeName + ' · ' + state.typeDeadline
+    : 'Выберите тип сайта';
+}
+
+// STEP 1
+function selectType(el, key, price, name, deadline) {
+  document.querySelectorAll('#step-1 .card-option').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  state.type = key;
+  state.typePrice = price;
+  state.typeName = name;
+  state.typeDeadline = deadline;
+  document.getElementById('nextBtn').disabled = false;
+  // Показать условия базового тарифа
+  document.getElementById('basicInfo').style.display = key === 'basic' ? 'block' : 'none';
+  updatePriceBar();
+}
+
+// STEP 2
+function toggleFeature(el, key, price) {
+  el.classList.toggle('selected');
+  if (el.classList.contains('selected')) {
+    state.features[key] = price;
+  } else {
+    delete state.features[key];
+  }
+  state.featuresTotal = Object.values(state.features).reduce((a,b) => a+b, 0);
+  updatePriceBar();
+}
+
+// STEP 3
+function selectDesign(el, key, price) {
+  document.querySelectorAll('.radio-option').forEach(r => {
+    if(r.onclick && r.onclick.toString().includes('selectDesign')) r.classList.remove('selected');
+  });
+  el.classList.add('selected');
+  state.design = key;
+  state.designPrice = price;
+  checkStep3();
+  updatePriceBar();
+}
+
+function selectDeadline(el, key, price) {
+  document.querySelectorAll('.radio-option').forEach(r => {
+    if(r.onclick && r.onclick.toString().includes('selectDeadline')) r.classList.remove('selected');
+  });
+  el.classList.add('selected');
+  state.deadline = key;
+  state.deadlinePrice = price;
+  checkStep3();
+  updatePriceBar();
+}
+
+function checkStep3() {
+  document.getElementById('nextBtn').disabled = !(state.design && state.deadline);
+}
+
+// NAVIGATION
+function nextStep() {
+  if (state.step < 4) {
+    document.getElementById('step-nav-' + state.step).classList.remove('active');
+    document.getElementById('step-nav-' + state.step).classList.add('done');
+    document.getElementById('step-' + state.step).classList.remove('active');
+    state.step++;
+    document.getElementById('step-nav-' + state.step).classList.add('active');
+    document.getElementById('step-' + state.step).classList.add('active');
+    document.getElementById('backBtn').style.display = 'block';
+
+    if (state.step === 2) {
+      document.getElementById('nextBtn').disabled = false;
+      document.getElementById('nextBtn').textContent = 'Далее →';
+    } else if (state.step === 3) {
+      document.getElementById('nextBtn').disabled = true;
+      document.getElementById('nextBtn').textContent = 'Далее →';
+    } else if (state.step === 4) {
+      document.getElementById('nextBtn').style.display = 'none';
+      buildSummary();
+      if(typeof fbq !== 'undefined') fbq('track', 'AddToCart', { value: totalPrice(), currency: 'USD' });
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
+
+function prevStep() {
+  if (state.step > 1) {
+    document.getElementById('step-nav-' + state.step).classList.remove('active');
+    document.getElementById('step-' + state.step).classList.remove('active');
+    state.step--;
+    document.getElementById('step-nav-' + state.step).classList.remove('done');
+    document.getElementById('step-nav-' + state.step).classList.add('active');
+    document.getElementById('step-' + state.step).classList.add('active');
+    document.getElementById('nextBtn').style.display = 'block';
+    if (state.step === 1) {
+      document.getElementById('backBtn').style.display = 'none';
+      document.getElementById('nextBtn').disabled = !state.type;
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
+
+// SUMMARY
+function buildSummary() {
+  const rows = [];
+  rows.push({ key: 'Тип сайта', val: state.typeName, price: '$' + state.typePrice });
+  rows.push({ key: 'Срок разработки', val: state.typeDeadline, price: '—' });
+
+  const featureNames = {
+    blog:'Блог / Новости', payment:'Онлайн оплата', cabinet:'Личный кабинет',
+    multilang:'Многоязычность', ai_chat:'AI чат-ассистент', crm:'CRM интеграция',
+    map:'Карта / геолокация', push:'Push уведомления', seo:'SEO оптимизация',
+    analytics:'Аналитика'
+  };
+  Object.entries(state.features).forEach(([k,v]) => {
+    rows.push({ key: featureNames[k] || k, val: '', price: '+$'+v });
+  });
+
+  if (state.designPrice > 0) {
+    const dNames = { premium: 'Премиум дизайн', luxury: 'Люкс дизайн' };
+    rows.push({ key: dNames[state.design], val: '', price: '+$'+state.designPrice });
+  }
+  if (state.deadlinePrice > 0) {
+    const dlNames = { fast: 'Ускоренный срок', urgent: 'Срочный заказ' };
+    rows.push({ key: dlNames[state.deadline], val: '', price: '+$'+state.deadlinePrice });
+  }
+
+  const html = rows.map(r => `
+    <div class="summary-row">
+      <span class="summary-key">${r.key}${r.val ? ' — ' + r.val : ''}</span>
+      <span class="summary-val">${r.price}</span>
+    </div>
+  `).join('');
+
+  document.getElementById('summaryRows').innerHTML = html;
+  document.getElementById('summaryTotal').textContent = '$' + totalPrice().toLocaleString();
+}
+
+// SUBMIT
+function submitOrder() {
+  const name = document.getElementById('clientName').value.trim();
+  const messenger = document.getElementById('clientMessenger').value.trim();
+  if (!name || !messenger) {
+    alert('Пожалуйста, заполните имя и контакт!');
+    return;
+  }
+
+  const comment = document.getElementById('clientComment').value.trim();
+  const featureNames = {
+    blog:'Блог', payment:'Оплата', cabinet:'Личный кабинет',
+    multilang:'Многоязычность', ai_chat:'AI чат', crm:'CRM',
+    map:'Карта', push:'Push', seo:'SEO', analytics:'Аналитика'
+  };
+  const featList = Object.keys(state.features).map(k => featureNames[k]).join(', ') || 'нет';
+  const designNames = { standard:'Стандарт', premium:'Премиум', luxury:'Люкс' };
+  const deadlineNames = { normal:'Стандартный', fast:'Ускоренный', urgent:'Срочный' };
+
+  const text = `Здравствуйте! Собрал сайт в конфигураторе:\n\n` +
+    `👤 Имя: ${name}\n` +
+    `📋 Тип: ${state.typeName}\n` +
+    `⏰ Срок: ${state.typeDeadline}\n` +
+    `✅ Функционал: ${featList}\n` +
+    `🎨 Дизайн: ${designNames[state.design] || '—'}\n` +
+    `🚀 Срочность: ${deadlineNames[state.deadline] || '—'}\n` +
+    `💰 Итого: $${totalPrice()}\n` +
+    (comment ? `💬 Комментарий: ${comment}` : '');
+
+  if(typeof fbq !== 'undefined') fbq('track', 'Lead', {
+    value: totalPrice(), currency: 'USD', content_name: state.typeName
+  });
+
+  const encoded = encodeURIComponent(text);
+  window.open(`https://t.me/access_ai_solutions?text=${encoded}`, '_blank');
+}
+</script>
+</body>
+</html>
