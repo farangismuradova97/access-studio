@@ -22,18 +22,18 @@ fbq('track', 'InitiateCheckout');
 src="https://www.facebook.com/tr?id=1358120169601616&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 :root {
-  --bg: #080a0f; --surface: #111520; --border: rgba(255,255,255,0.08);
-  --accent: #00e5ff; --accent2: #7b61ff; --text: #f0f2f7; --muted: #a8b0c0;
+  --bg: #07060d; --surface: #131024; --border: rgba(139,92,246,0.16);
+  --accent: #8b5cf6; --accent2: #6d28d9; --text: #f5f4fa; --muted: #a8a3c4;
 }
-html { background: #080a0f; }
-body { background: #080a0f; color: var(--text); font-family: 'Syne', sans-serif; min-height: 100vh; }
+html { background: #07060d; }
+body { background: #07060d; color: var(--text); font-family: 'Inter', sans-serif; min-height: 100vh; }
 body::before {
   content: ''; position: fixed; inset: 0;
-  background-image: linear-gradient(rgba(0,229,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(0,229,255,0.02) 1px, transparent 1px);
+  background-image: linear-gradient(rgba(139,92,246,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(139,92,246,0.03) 1px, transparent 1px);
   background-size: 60px 60px; pointer-events: none; z-index: 0;
 }
 nav {
@@ -44,26 +44,26 @@ nav {
 }
 .logo { font-size: 18px; font-weight: 800; color: var(--text); text-decoration: none; }
 .logo span { color: var(--accent); }
-.back-btn { font-family: 'Manrope', sans-serif; font-size: 14px; font-weight: 600; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+.back-btn { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; color: var(--muted); text-decoration: none; transition: color 0.2s; }
 .back-btn:hover { color: var(--accent); }
 
 .container { max-width: 600px; margin: 0 auto; padding: 120px 24px 80px; position: relative; z-index: 1; }
 
-.page-label { font-family: 'Manrope', sans-serif; font-size: 12px; font-weight: 700; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 16px; }
+.page-label { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 16px; }
 .page-title { font-size: clamp(36px, 5vw, 56px); font-weight: 800; letter-spacing: -2px; line-height: 1; margin-bottom: 16px; }
-.page-subtitle { font-family: 'Manrope', sans-serif; font-size: 16px; color: var(--muted); line-height: 1.7; margin-bottom: 40px; }
+.page-subtitle { font-family: 'Inter', sans-serif; font-size: 16px; color: var(--muted); line-height: 1.7; margin-bottom: 40px; }
 
-.form-card { background: #0d1117; border: 1px solid rgba(0,229,255,0.15); border-radius: 20px; padding: 40px; }
+.form-card { background: #0e0a1c; border: 1px solid rgba(139,92,246,0.18); border-radius: 20px; padding: 40px; }
 
 .form-group { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
-.form-label { font-family: 'Manrope', sans-serif; font-size: 13px; font-weight: 600; color: var(--muted); }
+.form-label { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; color: var(--muted); }
 .form-label .req { color: var(--accent); }
 .form-input, .form-textarea {
   background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
   border-radius: 10px; padding: 13px 16px; color: var(--text);
-  font-family: 'Manrope', sans-serif; font-size: 15px; outline: none; transition: border-color 0.2s; width: 100%;
+  font-family: 'Inter', sans-serif; font-size: 15px; outline: none; transition: border-color 0.2s; width: 100%;
 }
-.form-input:focus, .form-textarea:focus { border-color: rgba(0,229,255,0.4); }
+.form-input:focus, .form-textarea:focus { border-color: rgba(139,92,246,0.5); }
 .form-input::placeholder, .form-textarea::placeholder { color: rgba(168,176,192,0.5); }
 .form-textarea { resize: vertical; min-height: 80px; line-height: 1.6; }
 
@@ -73,26 +73,26 @@ nav {
   background: rgba(255,255,255,0.03); border: 1px solid var(--border);
   border-radius: 10px; padding: 16px 12px; cursor: pointer; transition: all 0.2s; text-align: center;
 }
-.radio-item:hover { border-color: rgba(0,229,255,0.3); }
+.radio-item:hover { border-color: rgba(139,92,246,0.35); }
 .radio-item input { display: none; }
-.radio-item.selected { border-color: var(--accent); background: rgba(0,229,255,0.05); }
+.radio-item.selected { border-color: var(--accent); background: rgba(139,92,246,0.07); }
 .radio-icon { font-size: 24px; }
-.radio-label { font-family: 'Manrope', sans-serif; font-size: 13px; font-weight: 600; color: var(--text); }
-.radio-price { font-family: 'Manrope', sans-serif; font-size: 12px; color: var(--accent); }
+.radio-label { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; color: var(--text); }
+.radio-price { font-family: 'Inter', sans-serif; font-size: 12px; color: var(--accent); }
 
 .submit-btn {
-  width: 100%; padding: 16px; background: var(--accent); color: #080a0f;
-  font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 700;
+  width: 100%; padding: 16px; background: linear-gradient(90deg, var(--accent), var(--accent2)); color: #fff;
+  font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 700;
   border: none; border-radius: 10px; cursor: pointer; transition: all 0.2s; margin-top: 24px;
 }
-.submit-btn:hover { background: var(--accent2); color: #fff; transform: translateY(-2px); }
+.submit-btn:hover { filter: brightness(1.12); transform: translateY(-2px); }
 
-.submit-note { font-family: 'Manrope', sans-serif; font-size: 13px; color: var(--muted); text-align: center; margin-top: 12px; line-height: 1.6; }
+.submit-note { font-family: 'Inter', sans-serif; font-size: 13px; color: var(--muted); text-align: center; margin-top: 12px; line-height: 1.6; }
 
 .success-msg { display: none; text-align: center; padding: 40px 20px; }
 .success-icon { font-size: 56px; margin-bottom: 20px; }
 .success-title { font-size: 28px; font-weight: 800; letter-spacing: -1px; margin-bottom: 14px; }
-.success-text { font-family: 'Manrope', sans-serif; font-size: 16px; color: var(--muted); line-height: 1.7; }
+.success-text { font-family: 'Inter', sans-serif; font-size: 16px; color: var(--muted); line-height: 1.7; }
 
 @media (max-width: 600px) {
   .form-card { padding: 24px; }
@@ -128,35 +128,35 @@ nav {
       <div class="form-group">
         <label class="form-label">Что нужно сделать? <span class="req">*</span></label>
         <div class="radio-grid">
-          <div class="radio-item" onclick="selectType(this, 'Лендинг от $800')">
-            <input type="radio" name="project_type" value="Лендинг от $800">
+          <div class="radio-item" onclick="selectType(this, 'Лендинг от $299')">
+            <input type="radio" name="project_type" value="Лендинг от $299">
             <div class="radio-icon">🎯</div>
             <div class="radio-label">Лендинг</div>
-            <div class="radio-price">от $800</div>
+            <div class="radio-price">от $299</div>
           </div>
-          <div class="radio-item" onclick="selectType(this, 'Сайт-визитка от $1500')">
-            <input type="radio" name="project_type" value="Сайт-визитка от $1500">
+          <div class="radio-item" onclick="selectType(this, 'Сайт-визитка от $399')">
+            <input type="radio" name="project_type" value="Сайт-визитка от $399">
             <div class="radio-icon">💼</div>
             <div class="radio-label">Сайт-визитка</div>
-            <div class="radio-price">от $1 500</div>
+            <div class="radio-price">от $399</div>
           </div>
-          <div class="radio-item" onclick="selectType(this, 'Корпоративный сайт от $3000')">
-            <input type="radio" name="project_type" value="Корпоративный сайт от $3000">
+          <div class="radio-item" onclick="selectType(this, 'Корпоративный сайт от $597')">
+            <input type="radio" name="project_type" value="Корпоративный сайт от $597">
             <div class="radio-icon">🏢</div>
             <div class="radio-label">Корпоративный</div>
-            <div class="radio-price">от $3 000</div>
+            <div class="radio-price">от $597</div>
           </div>
-          <div class="radio-item" onclick="selectType(this, 'Интернет-магазин от $5000')">
-            <input type="radio" name="project_type" value="Интернет-магазин от $5000">
+          <div class="radio-item" onclick="selectType(this, 'Интернет-магазин от $797')">
+            <input type="radio" name="project_type" value="Интернет-магазин от $797">
             <div class="radio-icon">🛍️</div>
             <div class="radio-label">Магазин</div>
-            <div class="radio-price">от $5 000</div>
+            <div class="radio-price">от $797</div>
           </div>
-          <div class="radio-item" onclick="selectType(this, 'Мобильное приложение от $6000')">
-            <input type="radio" name="project_type" value="Мобильное приложение от $6000">
+          <div class="radio-item" onclick="selectType(this, 'Мобильное приложение от $1497')">
+            <input type="radio" name="project_type" value="Мобильное приложение от $1497">
             <div class="radio-icon">📱</div>
             <div class="radio-label">Приложение</div>
-            <div class="radio-price">от $6 000</div>
+            <div class="radio-price">от $1 497</div>
           </div>
           <div class="radio-item" onclick="selectType(this, 'Другое / обсудим')">
             <input type="radio" name="project_type" value="Другое / обсудим">
